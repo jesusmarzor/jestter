@@ -18,13 +18,6 @@ const app = initializeApp(firebaseConfig)
 export const db = getFirestore(app)
 const auth = getAuth(app)
 
-export const getUsers = async (db: any): Promise<User[]> => {
-    const usersCol = collection(db, 'users')
-    const usersSnapshot = await getDocs(usersCol)
-    const usersList = usersSnapshot.docs.map(doc => doc.data())
-    return usersList as User[]
-}
-
 export const register = async (email: string, password: string) => {
     try{
       const userCredential = await createUserWithEmailAndPassword(auth, email, password)
