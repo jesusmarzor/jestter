@@ -1,0 +1,10 @@
+.RegisterSection {
+    margin: 3rem 0;
+    width: 18.75rem;
+}
+
+.RegisterSection-title {
+    font-family: TwitterChirpExtendedHeavy;
+    font-weight: 800;
+    margin-left: 1rem;
+}

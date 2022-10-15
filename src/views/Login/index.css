@@ -1,0 +1,21 @@
+.Login {
+    display: flex;
+    flex-flow: row-reverse wrap;
+}
+
+.Login-section {
+    min-width: 45%;
+    padding: 1rem;
+}
+
+.Login-picture {
+    min-width: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-image: url("./../../assets/img/lohp_en_1302x955.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: -12rem -6rem;
+}
