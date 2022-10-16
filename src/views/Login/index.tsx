@@ -4,6 +4,7 @@ import { Header } from "../../components/Login/Header"
 import { LoginSection } from "../../components/Login/LoginSection"
 import { RegisterSection } from "../../components/Login/RegisterSection"
 import COLORS from "../../utils/COLORS"
+import background from "../../assets/img/lohp_en_1302x955.png"
 import "./index.css"
 
 const Login = () => {
@@ -15,7 +16,10 @@ const Login = () => {
                 <LoginSection/>
             </section>
             <picture className="Login-picture">
-                <Hedgehog width={300} height={300} fill={COLORS.white}/>
+                <img className="Login-background" src={background}/>
+                <picture className="Login-logo">
+                    <Hedgehog width={320} height={320} fill={COLORS.white}/>
+                </picture>
             </picture>
             <Footer/>
         </div>

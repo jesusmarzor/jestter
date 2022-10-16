@@ -1,1 +1,10 @@
-{}
+{
+    "login_title": "Está sucendiendo",
+    "register_section_title": "Entra en Jestter hoy.",
+    "register_section_button_google_label": "Registrate con Google",
+    "register_section_button_email_label": "Registrate con email",
+    "register_section_footer": "Al registrarte, estas aceptando nuestros términos de servicio y politicas de privacidad. Incluido las cookies en uso.",
+    "login_section_title": "¿Ya tienes cuenta?",
+    "login_section_button_label": "Iniciar sesión",
+    "common_or": "o"
+}

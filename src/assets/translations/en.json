@@ -1,1 +1,10 @@
-{}
+{
+    "login_title": "Happening now",
+    "register_section_title": "Join Jestter today.",
+    "register_section_button_google_label": "Sign up with Google",
+    "register_section_button_email_label": "Sign up with email",
+    "register_section_footer": "By signing up, you agree to the Terms of Service and Privacy Policy, including Cookie Use.",
+    "login_section_title": "Already have an account?",
+    "login_section_button_label": "Sign in",
+    "common_or": "or"
+}

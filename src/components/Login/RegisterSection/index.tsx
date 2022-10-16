@@ -1,19 +1,19 @@
+import { useTranslation } from "react-i18next"
+import COLORS from "../../../utils/COLORS"
+import { Button } from "../../ui/Button"
+import Separator from "../../ui/Separator"
+import { FooterRegisterSection } from "./FooterRegisterSection"
 import "./index.css"
 
 export const RegisterSection = () => {
+    const { t } = useTranslation()
     return(
         <section className="RegisterSection">
-            <h2 className="RegisterSection-title">Join Jestter today.</h2>
-            <div>
-                <button>Registrar con google</button>
-            </div>
-            <p>or</p>
-            <div>
-                <button>Registrar con email</button>
-            </div>
-            <footer>
-                <p>By signing up, you agree to the Terms of Service and Privacy Policy, including Cookie Use.</p>
-            </footer>
+            <h2 className="RegisterSection-title">{t("register_section_title")}</h2>
+            <Button color={COLORS.black} backgroundColor={COLORS.white} borderColor={COLORS.gray}>{t("register_section_button_google_label")}</Button>
+            <Separator>{t("common_or")}</Separator>
+            <Button color={COLORS.white} backgroundColor={COLORS.basicBlue}>{t("register_section_button_email_label")}</Button>
+            <FooterRegisterSection/>
         </section>
     )
 }

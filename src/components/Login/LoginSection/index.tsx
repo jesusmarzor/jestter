@@ -1,10 +1,14 @@
+import { Button } from "../../ui/Button"
+import COLORS from "../../../utils/COLORS"
 import "./index.css"
+import { useTranslation } from "react-i18next"
 
 export const LoginSection = () => {
+    const { t } = useTranslation()
     return(
-        <section>
-            <h2 className="login-title">Alredy have an account?</h2>
-            <button>Login</button>
+        <section className="LoginSection">
+            <h2 className="LoginSection-title">{t("login_section_title")}</h2>
+            <Button color={COLORS.basicBlue} backgroundColor={COLORS.white} borderColor={COLORS.gray}>{t("login_section_button_label")}</Button>
         </section>
     )
 }

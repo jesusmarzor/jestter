@@ -1,0 +1,12 @@
+.Separator {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: .5rem 0;
+}
+.Separator-line {
+    display: inline-block;
+    width: 35%;
+    height: .02rem;
+    background-color: #CFD9DE;
+}

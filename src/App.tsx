@@ -1,7 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Login from "./views/Login"
 import "./config/i18n"
-import './App.css'
 
 function App() {
 
