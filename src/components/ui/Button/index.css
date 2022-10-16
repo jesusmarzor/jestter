@@ -6,5 +6,5 @@
 }
 
 .Button:hover {
-    
+    box-shadow: 0 1rem 0 1.5rem #6e6e6e22 inset;
 }

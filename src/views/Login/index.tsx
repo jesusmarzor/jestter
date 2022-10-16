@@ -18,7 +18,7 @@ const Login = () => {
             <picture className="Login-picture">
                 <img className="Login-background" src={background}/>
                 <picture className="Login-logo">
-                    <Hedgehog width={320} height={320} fill={COLORS.white}/>
+                    <Hedgehog width={350} height={350} fill={COLORS.white}/>
                 </picture>
             </picture>
             <Footer/>
