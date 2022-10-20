@@ -24,5 +24,11 @@
     "developers": "Developers",
     "directory": "Directory",
     "settings": "Settings",
-    "twitter_copy_by": "Twitter copy by"
+    "twitter_copy_by": "Twitter copy by",
+    "login_modal_title": "Sign in to Jestter",
+    "login_modal_button_google": "Sign in with Google",
+    "login_modal_phone_email_or_username_placeholder": "Phone, email or username",
+    "common_next": "Next",
+    "common_forgot_password": "Forgot password?",
+    "login_modal_footer": "Don't have an account? Sign up"
 }

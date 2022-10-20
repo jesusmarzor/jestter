@@ -13,9 +13,13 @@
 
 .Modal-section {
     position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
     background-color: white;
     width: 37.5rem;
     height: 40.5rem;
+    padding: .5rem;
     border-radius: 1rem;
 }
 

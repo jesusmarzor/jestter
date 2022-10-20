@@ -6,7 +6,7 @@ import { RegisterSection } from "../../components/Login/RegisterSection"
 import COLORS from "../../utils/COLORS"
 import background from "../../assets/img/lohp_en_1302x955.png"
 import "./index.css"
-import { Modal } from "../../components/Modal"
+import { LoginModal } from "../../components/LoginModal"
 
 const Login = () => {
     return(
@@ -25,8 +25,7 @@ const Login = () => {
             </picture>
             <Footer/>
         </div>
-        <Modal>
-        </Modal>
+        <LoginModal/>
         </>
     )
 }

@@ -1,13 +1,14 @@
 import "./index.css"
 
 interface props {
-    children: any
+    children: any,
+    onclick: any
 }
 
-export const Modal: React.FC<props> = ({children}) => {
+export const Modal: React.FC<props> = ({onclick, children}) => {
     return(
-        <div className="Modal">
-            <div className="Modal-section">
+        <div className="Modal" onClick={onclick}>
+            <section className="Modal-section">
                 <button className="Modal-close">
                     <svg className="Modal-svg" viewBox="0 0 24 24" aria-hidden="true">
                         <g>
@@ -16,7 +17,7 @@ export const Modal: React.FC<props> = ({children}) => {
                     </svg>
                 </button>
                {children}
-            </div>
+            </section>
         </div>
     )
 }
