@@ -1,6 +1,6 @@
 import Hedgehog from "../../Icons/Hedgehog"
 import COLORS from "../../../utils/COLORS"
-import "./index.css"
+import "./styles.css"
 import { useTranslation } from "react-i18next"
 
 export const Header = () => {

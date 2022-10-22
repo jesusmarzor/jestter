@@ -1,34 +1,23 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect } from "react"
 import { useTranslation } from "react-i18next"
-import { isEmpty } from "../../../utils/VALIDATIONS"
-import "./index.css"
+import useInputLogin from "../../../hooks/useInputLogin"
+import "./styles.css"
 
 interface props {
-    writing: any,
+    text: string
+    changeText: any
+    writing: boolean
     setWriting: any
+    title: string
 }
 
-export const InputLogin: React.FC<props> = ({writing, setWriting}) => {
-    
-    const refInput = useRef(null)
-    const [isFocus, setIsFocus] = useState(false)
-    const [text, setText] = useState("")
-    const { t } = useTranslation()
-
-    useEffect( () => {
-        writing ? refInput.current.focus() : refInput.current.blur() 
-        if (!writing && isEmpty(text)) { refInput.current.value = null }
-    }, [writing])
-
-    const changeText = (e: any) => {
-        let clearText = (e.target.value).trim()
-        !isEmpty(clearText) ? setText(e.target.value) : setText("")
-    }
+export const InputLogin: React.FC<props> = ({title, text, changeText, writing, setWriting}) => {
+    const {refInput, isFocus, setIsFocus} = useInputLogin({writing})
 
     return(
         <div className={`InputLogin ${(writing || isFocus || text ) && "InputLogin--active"}`} onClick={() => !writing && setWriting(true)}>
-            <p className={`InputLogin-p ${(writing || isFocus || text) && "InputLogin-p--active"}`}>{t("login_modal_phone_email_or_username_placeholder")}</p>
-            <input ref={refInput} className="InputLogin-input" onChange={ e => changeText(e)} onFocus={() => setIsFocus(true)} onBlur={() => setIsFocus(false)} type="text"/>
+            <p className={`InputLogin-p ${(writing || isFocus || text) && "InputLogin-p--active"}`}>{title}</p>
+            <input ref={refInput} className="InputLogin-input" onChange={ e => changeText(e)} onFocus={() => setIsFocus(true)} onBlur={() => setIsFocus(false)} type="text" value={text}/>
         </div>
     )
 }

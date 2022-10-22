@@ -3,7 +3,7 @@ import COLORS from "../../../utils/COLORS"
 import { Button } from "../../ui/Button"
 import Separator from "../../ui/Separator"
 import { FooterRegisterSection } from "./FooterRegisterSection"
-import "./index.css"
+import "./styles.css"
 
 export const RegisterSection = () => {
     const { t } = useTranslation()

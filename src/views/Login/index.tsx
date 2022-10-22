@@ -5,7 +5,7 @@ import { LoginSection } from "../../components/Login/LoginSection"
 import { RegisterSection } from "../../components/Login/RegisterSection"
 import COLORS from "../../utils/COLORS"
 import background from "../../assets/img/lohp_en_1302x955.png"
-import "./index.css"
+import "./styles.css"
 import { LoginModal } from "../../components/LoginModal"
 
 const Login = () => {

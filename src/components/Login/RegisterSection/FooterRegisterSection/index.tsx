@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next"
 import COLORS from "../../../../utils/COLORS"
-import "./index.css"
+import "./styles.css"
 
 export const FooterRegisterSection = () => {
     const { t } = useTranslation()
