@@ -1,7 +1,7 @@
 import "./styles.css"
 
 interface props {
-    children: string,
+    children: string | JSX.Element,
     color: string,
     backgroundColor: string
     borderColor?: string

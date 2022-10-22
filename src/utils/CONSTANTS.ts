@@ -1,0 +1,1 @@
+export const MAX_STEP_LOGIN_MODAL = 2
