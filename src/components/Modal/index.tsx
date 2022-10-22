@@ -8,7 +8,7 @@ interface props {
 export const Modal: React.FC<props> = ({onclick, children}) => {
     return(
         <div className="Modal" onClick={onclick}>
-            <section className="Modal-section">
+            <div className="Modal-section">
                 <button className="Modal-close">
                     <svg className="Modal-svg" viewBox="0 0 24 24" aria-hidden="true">
                         <g>
@@ -17,7 +17,7 @@ export const Modal: React.FC<props> = ({onclick, children}) => {
                     </svg>
                 </button>
                {children}
-            </section>
+            </div>
         </div>
     )
 }

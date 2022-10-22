@@ -1,0 +1,22 @@
+.LoginModal {
+    width: 18.75rem;
+    margin: 0 auto;
+}
+
+.LoginModal-title {
+    font-size: 1.8rem;
+    margin: 1.5rem 0;
+}
+
+.LoginModal-buttons {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.5rem;
+    height: 6.5rem;
+}
+
+.LoginModal-footer {
+    margin-top: 3rem;
+}
