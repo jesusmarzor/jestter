@@ -1,8 +1,5 @@
 .Loader {
-    width: 1.5rem;
-    height: 1.5rem;
-    border: .2rem solid #FFF;
-    border-bottom-color: #1D9BF0;
+    border: .2rem solid white;
     border-radius: 50%;
     display: inline-block;
     box-sizing: border-box;

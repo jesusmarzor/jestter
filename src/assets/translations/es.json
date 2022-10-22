@@ -30,5 +30,6 @@
     "login_modal_phone_email_or_username_placeholder": "Teléfono, email o nombre de usuario",
     "common_next": "Siguiente",
     "common_forgot_password": "¿Has olvidado tu contraseña?",
-    "login_modal_footer": "¿No tienes cuenta? Registrarse"
+    "login_modal_footer": "¿No tienes cuenta? Registrarse",
+    "error_login_user": "Perdona, no encontramos tu cuenta."
 }

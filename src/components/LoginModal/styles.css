@@ -8,15 +8,6 @@
     margin: 1.5rem 0;
 }
 
-.LoginModal-buttons {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-between;
-    align-items: center;
-    margin: 1.5rem;
-    height: 6.5rem;
-}
-
 .LoginModal-footer {
     margin-top: 3rem;
 }
