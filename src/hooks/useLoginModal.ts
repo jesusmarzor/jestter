@@ -4,10 +4,10 @@ import { MAX_STEP_LOGIN_MODAL } from "../utils/CONSTANTS"
 import useSteps from "../hooks/useSteps"
 
 const useLoginModal = () => {
-    const [writingUser, setWritingUser] = useState(false)
-    const [writingPassword, setWritingPassword] = useState(false)
-    const [textUser, setTextUser] = useState("")
-    const [textPassword, setTextPassword] = useState("")
+    const [writingUser, setWritingUser] = useState<boolean>(false)
+    const [writingPassword, setWritingPassword] = useState<boolean>(false)
+    const [textUser, setTextUser] = useState<string>("")
+    const [textPassword, setTextPassword] = useState<string>("")
     const { step, nextStep } = useSteps({maxStep: MAX_STEP_LOGIN_MODAL})
 
     const changeTextUser = (e: React.ChangeEvent<HTMLInputElement>) => {

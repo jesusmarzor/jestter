@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 const useModal = () => {
-    const [isModalLogin, setIsModalLogin] = useState(false)
+    const [isModalLogin, setIsModalLogin] = useState<boolean>(false)
     return {isModalLogin, setIsModalLogin}
 }
 

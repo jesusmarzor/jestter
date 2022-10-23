@@ -6,11 +6,11 @@ interface props {
 
 const useInputLogin = ({writing}: props) => {
 
-    const refInput = useRef(null)
+    const refInput = useRef<HTMLInputElement>(null)
     const [isFocus, setIsFocus] = useState(false)
 
     useEffect( () => {
-        writing ? refInput.current.focus() : refInput.current.blur() 
+        writing ? refInput.current?.focus() : refInput.current?.blur() 
     }, [writing])
 
     return {refInput, isFocus, setIsFocus}

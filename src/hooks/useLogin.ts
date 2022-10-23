@@ -51,6 +51,7 @@ const useLogin = ({textUser, textPassword, nextStep, goToView}: props): UseLogin
         setIsLoading(true)
         login(textUser, textPassword)
         .then( data => {
+            console.log(data)
             switch (data) {
                 case LOGIN_ERRORS_TYPE.PASSWORD:
                     setError(t("error_login_password"))
@@ -58,6 +59,8 @@ const useLogin = ({textUser, textPassword, nextStep, goToView}: props): UseLogin
                 case LOGIN_ERRORS_TYPE.MANY_REQUESTS:
                     setError(t("error_login_many_request"))
                     break
+                case LOGIN_ERRORS_TYPE.INTERNAL:
+                    setError(t("error_login_password"))
                 default:
                     loginAuth(data)
                     goToView()
