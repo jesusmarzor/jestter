@@ -1,7 +1,7 @@
-const MESSAGE = {
+const MESSAGES_TYPE = {
     success: "success",
     error: "error",
     info: "info"
 }
 
-export default MESSAGE
+export default MESSAGES_TYPE

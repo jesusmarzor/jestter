@@ -32,7 +32,14 @@ export const register = async (email: string, password: string) => {
 export const login = async (email: string, password: string) => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password)
-      const user = userCredential.user
+      const user: User = {
+        uid: userCredential.user.uid,
+        name: userCredential.user.displayName,
+        email: userCredential.user.email,
+        emailVerified: userCredential.user.emailVerified,
+        photoURL: userCredential.user.photoURL,
+        phoneNumber: userCredential.user.phoneNumber
+      }
       return user
     } catch (error: any) {
       return error.code

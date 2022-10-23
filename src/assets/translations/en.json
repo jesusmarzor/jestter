@@ -31,5 +31,8 @@
     "common_next": "Next",
     "common_forgot_password": "Forgot password?",
     "login_modal_footer": "Don't have an account? Sign up",
-    "error_login_user": "Sorry, we could not find your account."
+    "error_login_user": "Sorry, we could not find your account.",
+    "error_login_many_request": "Sorry, there have been too many requests.",
+    "error_login_user_not_found": "Sorry, this user is not register.",
+    "error_login_password": "Sorry, wrong password"
 }

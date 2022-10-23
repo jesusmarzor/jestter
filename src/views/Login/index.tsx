@@ -7,8 +7,16 @@ import COLORS from "../../utils/COLORS"
 import background from "../../assets/img/lohp_en_1302x955.png"
 import "./styles.css"
 import { LoginModal } from "../../components/LoginModal"
+import { useLocation, useNavigate } from "react-router-dom"
 
 const Login = () => {
+    const navigate = useNavigate()
+    const locate = useLocation()
+
+    const goToView = () => {
+        navigate(locate?.state?.pathname ?? '/')
+    }
+
     return(
         <>
         <div className="Login">
@@ -25,7 +33,7 @@ const Login = () => {
             </picture>
             <Footer/>
         </div>
-        <LoginModal/>
+        <LoginModal goToView={goToView}/>
         </>
     )
 }

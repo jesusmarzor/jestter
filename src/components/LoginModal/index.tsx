@@ -4,44 +4,24 @@ import { Button } from "../ui/Button"
 import { InputLogin } from "../ui/InputLogin"
 import Hedgehog from "../Icons/Hedgehog"
 import Separator from "../ui/Separator"
-import useSteps from "../../hooks/useSteps"
 import useLogin from "../../hooks/useLogin"
-import { MAX_STEP_LOGIN_MODAL } from "../../utils/CONSTANTS"
 import COLORS from "../../utils/COLORS"
-import "./styles.css"
-import { login } from "../../config/firebase"
-import { LOGIN_ERRORS } from "../../utils/ERRORS"
-import { useState } from "react"
 import { Loader } from "../ui/Loader"
-import BUTTONS from "../../utils/BUTTONS"
+import BUTTONS_TYPE from "../../utils/BUTTONS_TYPE"
 import { Message } from "../ui/Message"
-import MESSAGE from "../../utils/Message"
+import MESSAGES_TYPE from "../../utils/MESSAGES_TYPE"
 import { isEmpty } from "../../utils/VALIDATIONS"
+import useLoginModal from "../../hooks/useLoginModal"
+import "./styles.css"
 
-export const LoginModal = () => {
-    const { textUser, textPassword, writingUser, writingPassword, changeTextUser, changeTextPassword, setWritingUser, setWritingPassword, clickOutInput } = useLogin()
-    const { step, nextStep } = useSteps({maxStep: MAX_STEP_LOGIN_MODAL})
-    const [isLoading, setIsLoading] = useState(false)
-    const [error, setError] = useState("")
+interface props {
+    goToView: () => void
+}
+
+export const LoginModal = ({goToView}: props) => {
+    const { textUser, textPassword, writingUser, writingPassword, step, nextStep, changeTextUser, changeTextPassword, setWritingUser, setWritingPassword, clickOutInput } = useLoginModal()
+    const {isLoading, error, setError, validationUser, validationPassword} = useLogin({textUser, textPassword, nextStep, goToView})
     const { t } = useTranslation()
-
-    const validationUser = (e: any) => {
-        e.preventDefault()
-        setIsLoading(true)
-        login(textUser, " ")
-        .then( data => {
-            if ( data === LOGIN_ERRORS.PASSWORD ) {
-                (isEmpty(error)) && setError("")
-                nextStep()
-            } else {
-                setError(t("error_login_user"))
-                setInterval( () => {
-                    setError("")
-                }, 3000)
-            }
-            setIsLoading(false)
-        })
-    }
 
     return(
         <>
@@ -51,13 +31,13 @@ export const LoginModal = () => {
                 <h2 className="LoginModal-title">{t("login_modal_title")}</h2>
                 <Button color={COLORS.black} backgroundColor={COLORS.white} borderColor={COLORS.gray}>{t("login_modal_button_google")}</Button>
                 <Separator>{t("common_or")}</Separator>
-                <form onSubmit={ e => (step === 0) ? validationUser(e) : null }>
+                <form onSubmit={ e => (step === 0) ? validationUser(e, t) : validationPassword(e, t) }>
                 { 
                     (step === 0)
                     ?
                     <>
                         <InputLogin title={t("login_modal_phone_email_or_username_placeholder")} text={textUser} changeText={changeTextUser} writing={writingUser} setWriting={setWritingUser}/>
-                        <Button type={BUTTONS.submit} marginTop={1.5} marginBottom={1.5} color={COLORS.white} backgroundColor={COLORS.black} borderColor={COLORS.gray}>
+                        <Button type={BUTTONS_TYPE.submit} marginTop={1.5} marginBottom={1.5} disabled={!isEmpty(error)} color={COLORS.white} backgroundColor={COLORS.black} borderColor={COLORS.gray}>
                             {
                                 (isLoading)
                                 ? 
@@ -70,7 +50,7 @@ export const LoginModal = () => {
                     :
                     <>
                         <InputLogin title={"Password"} text={textPassword} changeText={changeTextPassword} writing={writingPassword} setWriting={setWritingPassword}/> 
-                        <Button marginTop={1.5} marginBottom={1.5} type={BUTTONS.submit} color={COLORS.white} backgroundColor={COLORS.black} borderColor={COLORS.gray}>{t("login_section_button_label")}</Button>
+                        <Button type={BUTTONS_TYPE.submit} marginTop={1.5} marginBottom={1.5} disabled={!isEmpty(error)} color={COLORS.white} backgroundColor={COLORS.black} borderColor={COLORS.gray}>{t("login_section_button_label")}</Button>
                     </>
                 }
                 </form>
@@ -81,7 +61,7 @@ export const LoginModal = () => {
             </section>
         </Modal>
         {
-            (!isEmpty(error)) && <Message type={MESSAGE.error} width={20}>{error}</Message>
+            (!isEmpty(error)) && <Message type={MESSAGES_TYPE.error} width={20} setError={setError}>{error}</Message>
         }
         </>
     )

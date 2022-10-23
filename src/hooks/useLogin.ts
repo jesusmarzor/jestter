@@ -1,28 +1,72 @@
 import { useState } from "react"
-import { isEmpty } from "../utils/VALIDATIONS" 
+import { login } from "../config/firebase"
+import { AuthConsumer } from "../contexts/AuthContext"
+import { LOGIN_ERRORS_TYPE } from "../utils/ERRORS_TYPE"
 
-const useLogin = () => {
-    const [writingUser, setWritingUser] = useState(false)
-    const [writingPassword, setWritingPassword] = useState(false)
-    const [textUser, setTextUser] = useState("")
-    const [textPassword, setTextPassword] = useState("")
+interface props {
+    textUser: string
+    textPassword: string
+    nextStep: () => void
+    goToView: () => void
+}
 
-    const changeTextUser = (e: any) => {
-        let clearText = (e.target.value).trim()
-        !isEmpty(clearText) ? setTextUser(e.target.value) : setTextUser("")
+interface UseLogin {
+    isLoading: boolean
+    error: string
+    setError: (value: string) => void
+    validationUser: (e: any, t: any) => void
+    validationPassword: (e: any, t: any) => void
+}
+
+const useLogin = ({textUser, textPassword, nextStep, goToView}: props): UseLogin => {
+
+    const [isLoading, setIsLoading] = useState<boolean>(false)
+    const [error, setError] = useState<string>("")
+    const { loginAuth } = AuthConsumer()
+
+    const validationUser = (e: any, t: any) => {
+        e.preventDefault()
+        setIsLoading(true)
+        login(textUser, " ")
+        .then( data => {
+            switch (data) {
+                case LOGIN_ERRORS_TYPE.PASSWORD:
+                    nextStep()
+                    break
+                case LOGIN_ERRORS_TYPE.MANY_REQUESTS:
+                    setError(t("error_login_many_request"))
+                    break
+                case LOGIN_ERRORS_TYPE.USER:
+                    setError(t("error_login_user_not_found"))
+                    break
+                default:
+                    setError(t("error_login_user"))
+            }
+            setIsLoading(false)
+        })
     }
 
-    const changeTextPassword = (e: any) => {
-        let clearText = (e.target.value).trim()
-        !isEmpty(clearText) ? setTextPassword(e.target.value) : setTextPassword("")
+    const validationPassword = (e: any, t: any) => {
+        e.preventDefault()
+        setIsLoading(true)
+        login(textUser, textPassword)
+        .then( data => {
+            switch (data) {
+                case LOGIN_ERRORS_TYPE.PASSWORD:
+                    setError(t("error_login_password"))
+                    break
+                case LOGIN_ERRORS_TYPE.MANY_REQUESTS:
+                    setError(t("error_login_many_request"))
+                    break
+                default:
+                    loginAuth(data)
+                    goToView()
+            }
+            setIsLoading(false)
+        })
     }
 
-    const clickOutInput = () => {
-        if (writingUser) { setWritingUser(false) }
-        if (writingPassword) {setWritingPassword(false)}
-    }
-
-    return {textUser, textPassword, writingUser, writingPassword, setWritingUser, setWritingPassword, changeTextUser, changeTextPassword, clickOutInput}
+    return { isLoading, error, setError, validationUser, validationPassword }
 }
 
 export default useLogin

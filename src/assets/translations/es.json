@@ -31,5 +31,8 @@
     "common_next": "Siguiente",
     "common_forgot_password": "¿Has olvidado tu contraseña?",
     "login_modal_footer": "¿No tienes cuenta? Registrarse",
-    "error_login_user": "Perdona, no encontramos tu cuenta."
+    "error_login_user": "Lo siento, no encontramos tu cuenta.",
+    "error_login_many_request": "Lo siento, han habido demasiadas solicitudes.",
+    "error_login_user_not_found": "Lo siento, este usuario no está registrado.",
+    "error_login_password": "Lo siento, la contraseña es incorrecta"
 }
