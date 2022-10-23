@@ -12,7 +12,7 @@ interface props {
 }
 
 export const Message: React.FC<props> = ({children, type, width, setError}) => {
-    useEffect( (): any => {
+    useEffect( () => {
         setInterval( () => {
             setError("")
         }, 5000)

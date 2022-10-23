@@ -5,9 +5,9 @@ import "./styles.css"
 
 interface props {
     text: string
-    changeText: any
+    changeText: (e: React.ChangeEvent<HTMLInputElement>) => void
     writing: boolean
-    setWriting: any
+    setWriting: (value: boolean) => void
     title: string
 }
 

@@ -13,19 +13,20 @@ import MESSAGES_TYPE from "../../utils/MESSAGES_TYPE"
 import { isEmpty } from "../../utils/VALIDATIONS"
 import useLoginModal from "../../hooks/useLoginModal"
 import "./styles.css"
+import { ModalConsumer } from "../../contexts/ModalContext"
 
 interface props {
     goToView: () => void
 }
 
-export const LoginModal = ({goToView}: props) => {
+export const LoginModal: React.FC<props> = ({goToView}) => {
     const { textUser, textPassword, writingUser, writingPassword, step, nextStep, changeTextUser, changeTextPassword, setWritingUser, setWritingPassword, clickOutInput } = useLoginModal()
     const {isLoading, error, setError, validationUser, validationPassword} = useLogin({textUser, textPassword, nextStep, goToView})
     const { t } = useTranslation()
-
+    const { setIsModalLogin: setIsModal } = ModalConsumer()
     return(
         <>
-        <Modal onclick={clickOutInput}>
+        <Modal close={setIsModal} onclick={clickOutInput}>
             <Hedgehog width={50} height={50} fill={COLORS.basicBlue}/>
             <section className="LoginModal">
                 <h2 className="LoginModal-title">{t("login_modal_title")}</h2>

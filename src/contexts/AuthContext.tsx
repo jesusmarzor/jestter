@@ -7,12 +7,12 @@ interface props {
 
 const authContext = createContext<any>(null);
 
-export const AuthProvider = ({children}: props) => {
+export const AuthProvider: React.FC<props> = ({children}) => {
     const auth = useAuth()
     return <authContext.Provider value={auth}>{children}</authContext.Provider>
 }
 
 export const AuthConsumer = () => {
-    const context: any | null = useContext(authContext)
+    const context: any = useContext(authContext)
     return context
 }

@@ -9,14 +9,13 @@ const useLoginModal = () => {
     const [textUser, setTextUser] = useState("")
     const [textPassword, setTextPassword] = useState("")
     const { step, nextStep } = useSteps({maxStep: MAX_STEP_LOGIN_MODAL})
-    const [isLoading, setIsLoading] = useState(false)
 
-    const changeTextUser = (e: any) => {
+    const changeTextUser = (e: React.ChangeEvent<HTMLInputElement>) => {
         let clearText = (e.target.value).trim()
         !isEmpty(clearText) ? setTextUser(e.target.value) : setTextUser("")
     }
 
-    const changeTextPassword = (e: any) => {
+    const changeTextPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
         let clearText = (e.target.value).trim()
         !isEmpty(clearText) ? setTextPassword(e.target.value) : setTextPassword("")
     }
@@ -26,7 +25,7 @@ const useLoginModal = () => {
         if (writingPassword) {setWritingPassword(false)}
     }
 
-    return {textUser, textPassword, writingUser, writingPassword, step, nextStep, isLoading, setWritingUser, setWritingPassword, changeTextUser, changeTextPassword, clickOutInput}
+    return {textUser, textPassword, writingUser, writingPassword, step, nextStep, setWritingUser, setWritingPassword, changeTextUser, changeTextPassword, clickOutInput}
 }
 
 export default useLoginModal

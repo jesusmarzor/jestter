@@ -3,18 +3,21 @@ import { Footer } from "../../components/Login/Footer"
 import { Header } from "../../components/Login/Header"
 import { LoginSection } from "../../components/Login/LoginSection"
 import { RegisterSection } from "../../components/Login/RegisterSection"
+import { LoginModal } from "../../components/LoginModal"
+import { useLocation, useNavigate } from "react-router-dom"
 import COLORS from "../../utils/COLORS"
 import background from "../../assets/img/lohp_en_1302x955.png"
 import "./styles.css"
-import { LoginModal } from "../../components/LoginModal"
-import { useLocation, useNavigate } from "react-router-dom"
+import { LOCATION_HOME } from "../../utils/CONSTANTS"
+import { ModalConsumer } from "../../contexts/ModalContext"
 
 const Login = () => {
     const navigate = useNavigate()
     const locate = useLocation()
+    const { isModalLogin: isModal } = ModalConsumer()
 
     const goToView = () => {
-        navigate(locate?.state?.pathname ?? '/')
+        navigate(locate?.state?.pathname ?? LOCATION_HOME)
     }
 
     return(
@@ -33,7 +36,7 @@ const Login = () => {
             </picture>
             <Footer/>
         </div>
-        <LoginModal goToView={goToView}/>
+        {(isModal) && <LoginModal goToView={goToView}/>}
         </>
     )
 }

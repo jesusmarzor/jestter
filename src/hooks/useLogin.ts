@@ -14,8 +14,8 @@ interface UseLogin {
     isLoading: boolean
     error: string
     setError: (value: string) => void
-    validationUser: (e: any, t: any) => void
-    validationPassword: (e: any, t: any) => void
+    validationUser: (e: React.FormEvent<HTMLFormElement>, t: any) => void
+    validationPassword: (e: React.FormEvent<HTMLFormElement>, t: any) => void
 }
 
 const useLogin = ({textUser, textPassword, nextStep, goToView}: props): UseLogin => {
@@ -24,7 +24,7 @@ const useLogin = ({textUser, textPassword, nextStep, goToView}: props): UseLogin
     const [error, setError] = useState<string>("")
     const { loginAuth } = AuthConsumer()
 
-    const validationUser = (e: any, t: any) => {
+    const validationUser = (e: React.FormEvent<HTMLFormElement>, t: any) => {
         e.preventDefault()
         setIsLoading(true)
         login(textUser, " ")
@@ -46,7 +46,7 @@ const useLogin = ({textUser, textPassword, nextStep, goToView}: props): UseLogin
         })
     }
 
-    const validationPassword = (e: any, t: any) => {
+    const validationPassword = (e: React.FormEvent<HTMLFormElement>, t: any) => {
         e.preventDefault()
         setIsLoading(true)
         login(textUser, textPassword)

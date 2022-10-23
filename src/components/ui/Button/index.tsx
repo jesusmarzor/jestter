@@ -8,11 +8,11 @@ interface props {
     borderColor?: string
     marginTop?: number
     marginBottom?: number
-    onclick?: any
+    onclick?: () => void
     disabled?: boolean
     type?: string
 }
-export const Button: React.FunctionComponent<props> = ({children, color, backgroundColor, borderColor = null, marginTop=0, marginBottom=0, onclick = null, disabled = false, type = BUTTONS_TYPE.button}) => {
+export const Button: React.FunctionComponent<props> = ({children, color, backgroundColor, borderColor = null, marginTop=0, marginBottom=0, onclick = () => {}, disabled = false, type = BUTTONS_TYPE.button}) => {
     switch (type) {
         case BUTTONS_TYPE.submit:
             return <button type="submit" disabled={disabled} className={`Button ${(disabled) && 'Button--disabled'}`} style={{color: `${color}`, background: `${backgroundColor}`, marginTop: `${marginTop}rem`, marginBottom: `${marginBottom}rem`, border: `${borderColor ? `.1rem solid ${borderColor}`: "inherit"}`}} onClick={onclick} >{children}</button>
