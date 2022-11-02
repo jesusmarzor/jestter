@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import Login from "./views/Login"
 import "./config/i18n"
 import { AuthProvider } from "./contexts/AuthContext"
 import { Home } from "./views/Home"
 import { RequireAuth } from "./components/RequireAuth"
 import { ModalProvider } from "./contexts/ModalContext"
+import Onboarding from "./views/Onboarding"
 
 function App() {
 
@@ -22,7 +22,7 @@ function App() {
           <Routes>
             <Route 
               path="/login" 
-              element = {<Login/>}
+              element = {<Onboarding/>}
             />
           </Routes>
           </BrowserRouter>

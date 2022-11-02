@@ -1,13 +1,13 @@
-.LoginModal {
+.Login {
     width: 18.75rem;
     margin: 0 auto;
 }
 
-.LoginModal-title {
+.Login-title {
     font-size: 1.8rem;
     margin: 1.5rem 0;
 }
 
-.LoginModal-footer {
+.Login-footer {
     margin-top: 3rem;
 }

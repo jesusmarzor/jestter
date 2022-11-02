@@ -51,7 +51,6 @@ const useOnboarding = ({textUser, textPassword, nextStep, goToView}: props): Use
         setIsLoading(true)
         login(textUser, textPassword)
         .then( data => {
-            console.log(data)
             switch (data) {
                 case LOGIN_ERRORS_TYPE.PASSWORD:
                     setError(t("error_login_password"))

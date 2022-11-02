@@ -1,19 +1,20 @@
-import React, { useEffect, useRef, useState } from "react"
+import { useState } from "react"
+import { isEmpty } from "../utils/VALIDATIONS" 
 
-interface props {
-    writing: boolean
-}
+const useInput = () => {
+    const [writing, setWriting] = useState<boolean>(false)
+    const [text, setText] = useState<string>("")
 
-const useInput = ({writing}: props) => {
+    const changeText = (e: React.ChangeEvent<HTMLInputElement>) => {
+        let clearText = (e.target.value).trim()
+        !isEmpty(clearText) ? setText(e.target.value) : setText("")
+    }
 
-    const refInput = useRef<HTMLInputElement>(null)
-    const [isFocus, setIsFocus] = useState(false)
+    const clickOutInput = () => {
+        writing && setWriting(false)
+    }
 
-    useEffect( () => {
-        writing ? refInput.current?.focus() : refInput.current?.blur() 
-    }, [writing])
-
-    return {refInput, isFocus, setIsFocus}
+    return {text, writing, setWriting, changeText, clickOutInput}
 }
 
 export default useInput

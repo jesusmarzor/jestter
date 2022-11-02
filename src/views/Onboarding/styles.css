@@ -1,9 +1,9 @@
-.Login {
+.Onboarding {
     display: flex;
     flex-flow: row-reverse wrap;
 }
 
-.Login-section {
+.Onboarding-section {
     width: 46%;
     min-height: 100vh;
     padding: 1rem 2rem;
@@ -13,13 +13,13 @@
     overflow: hidden;
 }
 
-.Login-picture {
+.Onboarding-picture {
     position: relative;
     width: 54%;
     overflow: hidden;
 }
 
-.Login-background {
+.Onboarding-background {
     position: absolute;
     width: 100vw;
     height: 100%;
@@ -27,7 +27,7 @@
     left: -12rem;
 }
 
-.Login-logo {
+.Onboarding-logo {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -35,21 +35,21 @@
 }
 
 @media (max-width: 1000px) {
-    .Login {
+    .Onboarding {
         flex-flow: column nowrap;
     }
-    .Login-picture {
+    .Onboarding-picture {
         width: 100%;
         height: 20rem;
     }
-    .Login-background{
+    .Onboarding-background{
         left: 0;
     }
-    .Login-section {
+    .Onboarding-section {
         align-items: center;
         width: 100%;
     }
-    .Login-logo svg{
+    .Onboarding-logo svg{
         width: 15rem;
     }
 }
