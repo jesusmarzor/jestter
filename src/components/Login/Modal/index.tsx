@@ -1,19 +1,19 @@
 import { useTranslation } from "react-i18next"
-import { Modal } from "../ui/Modal"
-import { Button } from "../ui/Button"
-import { InputLogin } from "../ui/InputLogin"
-import Hedgehog from "../Icons/Hedgehog"
-import Separator from "../ui/Separator"
-import useLogin from "../../hooks/useLogin"
-import COLORS from "../../utils/COLORS"
-import { Loader } from "../ui/Loader"
-import BUTTONS_TYPE from "../../utils/BUTTONS_TYPE"
-import { Message } from "../ui/Message"
-import MESSAGES_TYPE from "../../utils/MESSAGES_TYPE"
-import { isEmpty } from "../../utils/VALIDATIONS"
-import useLoginModal from "../../hooks/useLoginModal"
+import { Modal } from "../../ui/Modal"
+import { Button } from "../../ui/Button"
+import { Input } from "../../ui/Input"
+import Hedgehog from "../../Icons/Hedgehog"
+import Separator from "../../ui/Separator"
+import useLogin from "../../../hooks/useOnboarding"
+import COLORS from "../../../utils/COLORS"
+import { Loader } from "../../ui/Loader"
+import BUTTONS_TYPE from "../../../utils/BUTTONS_TYPE"
+import { Message } from "../../ui/Message"
+import MESSAGES_TYPE from "../../../utils/MESSAGES_TYPE"
+import { isEmpty } from "../../../utils/VALIDATIONS"
+import useLoginModal from "../../../hooks/useLoginModal"
 import "./styles.css"
-import { ModalConsumer } from "../../contexts/ModalContext"
+import { ModalConsumer } from "../../../contexts/ModalContext"
 
 interface props {
     goToView: () => void
@@ -37,7 +37,7 @@ export const LoginModal: React.FC<props> = ({goToView}) => {
                     (step === 0)
                     ?
                     <>
-                        <InputLogin type="text" title={t("login_modal_phone_email_or_username_placeholder")} text={textUser} changeText={changeTextUser} writing={writingUser} setWriting={setWritingUser}/>
+                        <Input type="text" title={t("login_modal_phone_email_or_username_placeholder")} text={textUser} changeText={changeTextUser} writing={writingUser} setWriting={setWritingUser}/>
                         <Button type={BUTTONS_TYPE.submit} marginTop={1.5} marginBottom={1.5} disabled={!isEmpty(error)} color={COLORS.white} backgroundColor={COLORS.black} borderColor={COLORS.gray}>
                             {
                                 (isLoading)
@@ -50,7 +50,7 @@ export const LoginModal: React.FC<props> = ({goToView}) => {
                     </>
                     :
                     <>
-                        <InputLogin type="password" title={"Password"} text={textPassword} changeText={changeTextPassword} writing={writingPassword} setWriting={setWritingPassword}/> 
+                        <Input type="password" title={"Password"} text={textPassword} changeText={changeTextPassword} writing={writingPassword} setWriting={setWritingPassword}/> 
                         <Button type={BUTTONS_TYPE.submit} marginTop={1.5} marginBottom={1.5} disabled={!isEmpty(error)} color={COLORS.white} backgroundColor={COLORS.black} borderColor={COLORS.gray}>{t("login_section_button_label")}</Button>
                     </>
                 }

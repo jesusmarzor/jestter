@@ -10,7 +10,7 @@ interface props {
     goToView: () => void
 }
 
-interface UseLogin {
+interface UseOnboarding {
     isLoading: boolean
     error: string
     setError: (value: string) => void
@@ -18,7 +18,7 @@ interface UseLogin {
     validationPassword: (e: React.FormEvent<HTMLFormElement>, t: any) => void
 }
 
-const useLogin = ({textUser, textPassword, nextStep, goToView}: props): UseLogin => {
+const useOnboarding = ({textUser, textPassword, nextStep, goToView}: props): UseOnboarding => {
 
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [error, setError] = useState<string>("")
@@ -72,4 +72,4 @@ const useLogin = ({textUser, textPassword, nextStep, goToView}: props): UseLogin
     return { isLoading, error, setError, validationUser, validationPassword }
 }
 
-export default useLogin
+export default useOnboarding

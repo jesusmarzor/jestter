@@ -1,15 +1,15 @@
 import Hedgehog from "../../components/Icons/Hedgehog"
-import { Footer } from "../../components/Login/Footer"
-import { Header } from "../../components/Login/Header"
-import { LoginSection } from "../../components/Login/LoginSection"
-import { RegisterSection } from "../../components/Login/RegisterSection"
-import { LoginModal } from "../../components/LoginModal"
+import { Footer } from "../../components/Onboarding/Footer"
+import { Header } from "../../components/Onboarding/Header"
+import { LoginSection } from "../../components/Onboarding/LoginSection"
+import { RegisterSection } from "../../components/Onboarding/RegisterSection"
+import { LoginModal } from "../../components/Login/Modal"
 import { useLocation, useNavigate } from "react-router-dom"
 import COLORS from "../../utils/COLORS"
 import background from "../../assets/img/lohp_en_1302x955.png"
-import "./styles.css"
 import { LOCATION_HOME } from "../../utils/CONSTANTS"
 import { ModalConsumer } from "../../contexts/ModalContext"
+import "./styles.css"
 
 const Login = () => {
     const navigate = useNavigate()

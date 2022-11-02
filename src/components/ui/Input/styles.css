@@ -1,4 +1,4 @@
-.InputLogin {
+.Input {
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-around;
@@ -9,25 +9,25 @@
     padding: .5rem;
 }
 
-.InputLogin--active {
+.Input--active {
     border-color: #1D9BF0;
 }
 
-.InputLogin-p {
+.Input-p {
     font-size: 1rem;
     color: #536471;
     transform: translateY(.7rem);
     transition: font-size 100ms ease, color 100ms ease, transform 100ms ease;
 }
 
-.InputLogin-p--active {
+.Input-p--active {
     font-size: .8rem;
     color: #1D9BF0;
     transform: translateY(0);
     transition: font-size 100ms ease, color 100ms ease, transform 100ms ease;
 }
 
-.InputLogin-input {
+.Input-input {
     border: none;
     outline: none;
     height: 2rem;

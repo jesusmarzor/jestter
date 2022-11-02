@@ -4,7 +4,7 @@ interface props {
     writing: boolean
 }
 
-const useInputLogin = ({writing}: props) => {
+const useInput = ({writing}: props) => {
 
     const refInput = useRef<HTMLInputElement>(null)
     const [isFocus, setIsFocus] = useState(false)
@@ -16,4 +16,4 @@ const useInputLogin = ({writing}: props) => {
     return {refInput, isFocus, setIsFocus}
 }
 
-export default useInputLogin
+export default useInput
