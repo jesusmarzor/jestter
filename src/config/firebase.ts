@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app"
 import { getFirestore, collection, getDocs, addDoc } from 'firebase/firestore/lite';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth"
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendPasswordResetEmail } from "firebase/auth"
 
 const { VITE_APP_API_KEY, VITE_APP_AUTH_DOMAIN, VITE_APP_PROJECT_ID, VITE_APP_STORAGE_BUCKET, VITE_APP_MESSAGING_SENDER_ID, VITE_APP_APP_ID, VITE_APP_MEASUREMENT_ID } = import.meta.env
 
@@ -51,6 +51,15 @@ export const logout = async () => {
     await signOut(auth)
     return true
   } catch(error){
+    return false
+  }
+}
+
+export const resetPassword = async (email: string) => {
+  try {
+    await sendPasswordResetEmail(auth, email)
+    return true
+  } catch (error) {
     return false
   }
 }

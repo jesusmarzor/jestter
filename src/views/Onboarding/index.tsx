@@ -10,11 +10,12 @@ import background from "../../assets/img/lohp_en_1302x955.png"
 import { LOCATION_HOME } from "../../utils/CONSTANTS"
 import { ModalConsumer } from "../../contexts/ModalContext"
 import "./styles.css"
+import ResetPassword from "../../components/Modals/ResetPassword"
 
 const Onboarding = () => {
     const navigate = useNavigate()
     const locate = useLocation()
-    const { isModalLogin } = ModalConsumer()
+    const { isModalLogin, isModalResetPassword } = ModalConsumer()
 
     const goToView = () => {
         navigate(locate?.state?.pathname ?? LOCATION_HOME)
@@ -37,6 +38,7 @@ const Onboarding = () => {
             <Footer/>
         </div>
         {(isModalLogin) && <Login goToView={goToView}/>}
+        {(isModalResetPassword) && <ResetPassword/>}
         </>
     )
 }
