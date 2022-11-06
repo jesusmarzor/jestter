@@ -1,6 +1,6 @@
 interface props {
-    width: number
-    height: number
+    width: string
+    height: string
     fill: string
 }
 const Hedgehog = ( {width, height, fill} : props) => {

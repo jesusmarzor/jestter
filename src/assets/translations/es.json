@@ -34,5 +34,8 @@
     "error_login_user": "Lo siento, no encontramos tu cuenta.",
     "error_login_many_request": "Lo siento, han habido demasiadas solicitudes.",
     "error_login_user_not_found": "Lo siento, este usuario no está registrado.",
-    "error_login_password": "Lo siento, la contraseña es incorrecta"
+    "error_login_password": "Lo siento, la contraseña es incorrecta",
+    "forgot_password_find_your_account": "Buscar tu cuenta de Jestter",
+    "common_search": "Buscar",
+    "common_password": "Contraseña"
 }

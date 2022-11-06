@@ -7,15 +7,16 @@ import Separator from "../../ui/Separator"
 import useLogin from "../../../hooks/useLogin"
 import COLORS from "../../../utils/COLORS"
 import { Loader } from "../../ui/Loader"
-import BUTTONS_TYPE from "../../../utils/BUTTONS_TYPE"
+import BUTTONS_TYPES from "../../../utils/BUTTONS_TYPES"
 import { Message } from "../../ui/Message"
 import MESSAGES_TYPE from "../../../utils/MESSAGES_TYPE"
 import useInput from "../../../hooks/useInput"
 import { isEmpty } from "../../../utils/VALIDATIONS"
-import "./styles.css"
 import { ModalConsumer } from "../../../contexts/ModalContext"
 import useSteps from "../../../hooks/useSteps"
-import { MAX_STEP_LOGIN_MODAL } from "../../../utils/CONSTANTS"
+import { HEIGHTS, MARGINS, MAX_STEP_LOGIN_MODAL, WIDTHS } from "../../../utils/CONSTANTS"
+import INPUT_TYPES from "../../../utils/INPUT_TYPES"
+import "./styles.css"
 
 interface props {
     goToView: () => void
@@ -32,7 +33,7 @@ export const Login: React.FC<props> = ({ goToView }) => {
     return (
         <>
             <Modal close={setIsModal} onclick={(step === 0) ? clickOutInputUser : clickOutInputPassword}>
-                <Hedgehog width={50} height={50} fill={COLORS.basicBlue} />
+                <Hedgehog width={WIDTHS.MD_EXT} height={HEIGHTS.MD_EXT} fill={COLORS.basicBlue} />
                 <section className="Login">
                     <h2 className="Login-title">{t("login_modal_title")}</h2>
                     <Button color={COLORS.black} backgroundColor={COLORS.white} borderColor={COLORS.gray}>{t("login_modal_button_google")}</Button>
@@ -42,12 +43,12 @@ export const Login: React.FC<props> = ({ goToView }) => {
                             (step === 0)
                                 ?
                                 <>
-                                    <Input type="text" title={t("login_modal_phone_email_or_username_placeholder")} text={textUser} changeText={changeTextUser} writing={writingUser} setWriting={setWritingUser} />
-                                    <Button type={BUTTONS_TYPE.submit} marginTop={1.5} marginBottom={1.5} disabled={!isEmpty(error)} color={COLORS.white} backgroundColor={COLORS.black} borderColor={COLORS.gray}>
+                                    <Input type={INPUT_TYPES.TEXT} title={t("login_modal_phone_email_or_username_placeholder")} text={textUser} changeText={changeTextUser} writing={writingUser} setWriting={setWritingUser} />
+                                    <Button type={BUTTONS_TYPES.submit} marginTop={MARGINS.MD} marginBottom={MARGINS.MD} disabled={!isEmpty(error)} color={COLORS.white} backgroundColor={COLORS.black} borderColor={COLORS.gray}>
                                         {
                                             (isLoading)
                                                 ?
-                                                <Loader width={1.2} height={1.2} color={COLORS.basicBlue} />
+                                                <Loader width={WIDTHS.XS} height={HEIGHTS.XS} color={COLORS.basicBlue} />
                                                 :
                                                 t("common_next")
                                         }
@@ -55,8 +56,8 @@ export const Login: React.FC<props> = ({ goToView }) => {
                                 </>
                                 :
                                 <>
-                                    <Input type="password" title={"Password"} text={textPassword} changeText={changeTextPassword} writing={writingPassword} setWriting={setWritingPassword} />
-                                    <Button type={BUTTONS_TYPE.submit} marginTop={1.5} marginBottom={1.5} disabled={!isEmpty(error)} color={COLORS.white} backgroundColor={COLORS.black} borderColor={COLORS.gray}>{t("login_section_button_label")}</Button>
+                                    <Input type={INPUT_TYPES.PASSWORD} title={t('common_password')} text={textPassword} changeText={changeTextPassword} writing={writingPassword} setWriting={setWritingPassword} />
+                                    <Button type={BUTTONS_TYPES.submit} marginTop={MARGINS.MD} marginBottom={MARGINS.MD} disabled={!isEmpty(error)} color={COLORS.white} backgroundColor={COLORS.black} borderColor={COLORS.gray}>{t("login_section_button_label")}</Button>
                                 </>
                         }
                     </form>
@@ -67,7 +68,7 @@ export const Login: React.FC<props> = ({ goToView }) => {
                 </section>
             </Modal>
             {
-                (!isEmpty(error)) && <Message type={MESSAGES_TYPE.error} width={20} setError={setError}>{error}</Message>
+                (!isEmpty(error)) && <Message type={MESSAGES_TYPE.error} width={WIDTHS.XL2} setError={setError}>{error}</Message>
             }
         </>
     )

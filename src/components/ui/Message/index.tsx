@@ -7,7 +7,7 @@ import "./styles.css"
 interface props {
     children: string
     type: string
-    width: number
+    width: string
     setError: (value: string) => void
 }
 
@@ -17,5 +17,5 @@ export const Message: React.FC<props> = ({children, type, width, setError}) => {
             setError("")
         }, 5000)
     }, [children])
-    return <p className="Message" style={{ backgroundColor: `${COLORS.basicBlue}`, width: `${width}rem`}}>{children}</p>
+    return <p className="Message" style={{ backgroundColor: `${COLORS.basicBlue}`, width: width}}>{children}</p>
 }   

@@ -3,4 +3,4 @@ const BUTTONS_TYPES = {
     submit: "submit"
 }
 
-export  default BUTTONS_TYPES
+export default BUTTONS_TYPES

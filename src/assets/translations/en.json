@@ -1,5 +1,5 @@
 {
-    "login_title": "Happening now",
+    "onboarding_title": "Happening now",
     "register_section_title": "Join Jestter today.",
     "register_section_button_google_label": "Sign up with Google",
     "register_section_button_email_label": "Sign up with email",
@@ -34,5 +34,8 @@
     "error_login_user": "Sorry, we could not find your account.",
     "error_login_many_request": "Sorry, there have been too many requests.",
     "error_login_user_not_found": "Sorry, this user is not register.",
-    "error_login_password": "Sorry, wrong password"
+    "error_login_password": "Sorry, wrong password",
+    "forgot_password_find_your_account": "Find your Jestter account",
+    "common_search": "Search",
+    "common_password": "Password"
 }
