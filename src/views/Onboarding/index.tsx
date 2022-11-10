@@ -9,8 +9,8 @@ import COLORS from "../../utils/COLORS"
 import background from "../../assets/img/lohp_en_1302x955.png"
 import { HEIGHTS, LOCATION_HOME, WIDTHS } from "../../utils/CONSTANTS"
 import { ModalConsumer } from "../../contexts/ModalContext"
-import "./styles.css"
 import ResetPassword from "../../components/Modals/ResetPassword"
+import "./styles.css"
 
 const Onboarding = () => {
     const navigate = useNavigate()

@@ -8,13 +8,13 @@ interface props {
     children: string
     type: string
     width: string
-    setError: (value: string) => void
+    setNotification: (value: string) => void
 }
 
-export const Message: React.FC<props> = ({children, type, width, setError}) => {
+export const Message: React.FC<props> = ({children, type, width, setNotification}) => {
     useEffect( () => {
         setInterval( () => {
-            setError("")
+            setNotification("")
         }, 5000)
     }, [children])
     return <p className="Message" style={{ backgroundColor: `${COLORS.basicBlue}`, width: width}}>{children}</p>
