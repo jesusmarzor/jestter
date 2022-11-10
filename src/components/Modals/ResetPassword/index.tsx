@@ -16,18 +16,14 @@ import { Message } from "../../ui/Message"
 import { Modal } from "../../ui/Modal"
 import "./styles.css"
 
-interface props {
-    goToView: () => void
-}
-
-const ResetPassword: React.FC<props> = ({ goToView }) => {
+const ResetPassword = () => {
     const { text, writing, setWriting, changeText, clickOutInput } = useInput()
-    const { isLoading, notification, setNotification, validationUser } = useResetPassword({ text, goToView })
+    const { isLoading, notification, setNotification, validationUser } = useResetPassword({ text })
     const { t } = useTranslation()
     const { setIsModalResetPassword: setIsModal } = ModalConsumer()
     return (
         <>
-            <Modal close={setIsModal} onclick={clickOutInput}>
+            <Modal backgroundColor={COLORS.empty} close={setIsModal} onclick={clickOutInput}>
                 <Hedgehog width={WIDTHS.MD_EXT} height={HEIGHTS.MD_EXT} fill={COLORS.basicBlue} />
                 <section className="ResetPassword">
                     <h1 className="ResetPassword-title">{t("forgot_password_find_your_account")}</h1>

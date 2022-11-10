@@ -38,7 +38,7 @@ const Onboarding = () => {
             <Footer/>
         </div>
         {(isModalLogin) && <Login goToView={goToView}/>}
-        {(isModalResetPassword) && <ResetPassword goToView={goToView}/>}
+        {(isModalResetPassword) && <ResetPassword/>}
         </>
     )
 }
