@@ -1,0 +1,18 @@
+.Button {
+    border-radius: 10rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.Button:hover {
+    box-shadow: 0 1rem 0 1.5rem #6e6e6e22 inset;
+}
+
+.Button--disabled {
+    opacity: .5;
+    pointer-events: none;
+}
+
+.Button--disabled:hover {
+    box-shadow: none;
+}

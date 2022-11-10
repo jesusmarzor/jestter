@@ -1,9 +1,24 @@
+@font-face {
+    font-family: TwitterChirpExtended;
+    src: url("./assets/fonts/Chirp/chirp_regular.otf");
+}
+
+@font-face {
+    font-family: TwitterChirpExtendedHeavy;
+    src: url("./assets/fonts/Chirp/chirp_heavy.otf");
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+a {
+    color: #536471;
+    text-decoration: none;
+}
+
 body {
-    
+    font-family: TwitterChirpExtended, Verdana, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }

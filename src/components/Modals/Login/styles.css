@@ -1,0 +1,13 @@
+.Login {
+    width: 18.75rem;
+    margin: 0 auto;
+}
+
+.Login-title {
+    font-size: 1.8rem;
+    margin: 1.5rem 0;
+}
+
+.Login-footer {
+    margin-top: 3rem;
+}

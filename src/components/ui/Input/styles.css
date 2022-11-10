@@ -1,0 +1,36 @@
+.Input {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    width: 18.75rem;
+    height: 3.8rem;
+    border-radius: .3rem;
+    border: .1rem solid #CFD9DE;
+    padding: .5rem;
+}
+
+.Input--active {
+    border-color: #1D9BF0;
+}
+
+.Input-p {
+    font-size: 1rem;
+    color: #536471;
+    transform: translateY(.7rem);
+    transition: font-size 100ms ease, color 100ms ease, transform 100ms ease;
+}
+
+.Input-p--active {
+    font-size: .8rem;
+    color: #1D9BF0;
+    transform: translateY(0);
+    transition: font-size 100ms ease, color 100ms ease, transform 100ms ease;
+}
+
+.Input-input {
+    border: none;
+    outline: none;
+    height: 2rem;
+    pointer-events: none;
+    font-size: 1.1rem;
+}

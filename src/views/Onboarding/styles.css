@@ -1,0 +1,55 @@
+.Onboarding {
+    display: flex;
+    flex-flow: row-reverse wrap;
+}
+
+.Onboarding-section {
+    width: 46%;
+    min-height: 100vh;
+    padding: 1rem 2rem;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.Onboarding-picture {
+    position: relative;
+    width: 54%;
+    overflow: hidden;
+}
+
+.Onboarding-background {
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    object-fit: cover;
+    left: -12rem;
+}
+
+.Onboarding-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media (max-width: 1000px) {
+    .Onboarding {
+        flex-flow: column nowrap;
+    }
+    .Onboarding-picture {
+        width: 100%;
+        height: 20rem;
+    }
+    .Onboarding-background{
+        left: 0;
+    }
+    .Onboarding-section {
+        align-items: center;
+        width: 100%;
+    }
+    .Onboarding-logo svg{
+        width: 15rem;
+    }
+}
