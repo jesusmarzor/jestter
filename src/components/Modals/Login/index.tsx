@@ -26,7 +26,7 @@ export const Login: React.FC<props> = ({ goToView }) => {
     const { text: textUser, writing: writingUser, setWriting: setWritingUser, changeText: changeTextUser, clickOutInput: clickOutInputUser } = useInput()
     const { text: textPassword, writing: writingPassword, setWriting: setWritingPassword, changeText: changeTextPassword, clickOutInput: clickOutInputPassword } = useInput()
     const { step, nextStep } = useSteps({ maxStep: MAX_STEP_LOGIN_MODAL })
-    const { isLoading, error, setError, validationUser, validationPassword } = useLogin({ textUser, textPassword, nextStep, goToView })
+    const { isLoading, notification, setNotification, validationUser, validationPassword } = useLogin({ textUser, textPassword, nextStep, goToView })
     const { t } = useTranslation()
     const { setIsModalLogin: setIsModal, setIsModalResetPassword } = ModalConsumer()
 
@@ -44,7 +44,7 @@ export const Login: React.FC<props> = ({ goToView }) => {
                                 ?
                                 <>
                                     <Input type={INPUT_TYPES.TEXT} title={t("login_modal_phone_email_or_username_placeholder")} text={textUser} changeText={changeTextUser} writing={writingUser} setWriting={setWritingUser} />
-                                    <Button type={BUTTONS_TYPES.submit} marginTop={MARGINS.MD} marginBottom={MARGINS.MD} disabled={!isEmpty(error)} color={COLORS.white} backgroundColor={COLORS.black} borderColor={COLORS.gray}>
+                                    <Button type={BUTTONS_TYPES.submit} marginTop={MARGINS.MD} marginBottom={MARGINS.MD} disabled={!isEmpty(notification)} color={COLORS.white} backgroundColor={COLORS.black} borderColor={COLORS.gray}>
                                         {
                                             (isLoading)
                                                 ?
@@ -57,7 +57,7 @@ export const Login: React.FC<props> = ({ goToView }) => {
                                 :
                                 <>
                                     <Input type={INPUT_TYPES.PASSWORD} title={t('common_password')} text={textPassword} changeText={changeTextPassword} writing={writingPassword} setWriting={setWritingPassword} />
-                                    <Button type={BUTTONS_TYPES.submit} marginTop={MARGINS.MD} marginBottom={MARGINS.MD} disabled={!isEmpty(error)} color={COLORS.white} backgroundColor={COLORS.black} borderColor={COLORS.gray}>{t("login_section_button_label")}</Button>
+                                    <Button type={BUTTONS_TYPES.submit} marginTop={MARGINS.MD} marginBottom={MARGINS.MD} disabled={!isEmpty(notification)} color={COLORS.white} backgroundColor={COLORS.black} borderColor={COLORS.gray}>{t("login_section_button_label")}</Button>
                                 </>
                         }
                     </form>
@@ -68,7 +68,7 @@ export const Login: React.FC<props> = ({ goToView }) => {
                 </section>
             </Modal>
             {
-                (!isEmpty(error)) && <Message type={MESSAGES_TYPE.error} width={WIDTHS.XL2} setError={setError}>{error}</Message>
+                (!isEmpty(notification)) && <Message type={MESSAGES_TYPE.error} width={WIDTHS.XL2} setNotification={setNotification}>{notification}</Message>
             }
         </>
     )

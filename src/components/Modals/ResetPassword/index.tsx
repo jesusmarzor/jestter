@@ -16,9 +16,13 @@ import { Message } from "../../ui/Message"
 import { Modal } from "../../ui/Modal"
 import "./styles.css"
 
-const ResetPassword = () => {
+interface props {
+    goToView: () => void
+}
+
+const ResetPassword: React.FC<props> = ({ goToView }) => {
     const { text, writing, setWriting, changeText, clickOutInput } = useInput()
-    const { isLoading, error, setError, validationUser } = useResetPassword({ text })
+    const { isLoading, notification, setNotification, validationUser } = useResetPassword({ text, goToView })
     const { t } = useTranslation()
     const { setIsModalResetPassword: setIsModal } = ModalConsumer()
     return (
@@ -27,20 +31,22 @@ const ResetPassword = () => {
                 <Hedgehog width={WIDTHS.MD_EXT} height={HEIGHTS.MD_EXT} fill={COLORS.basicBlue} />
                 <section className="ResetPassword">
                     <h1 className="ResetPassword-title">{t("forgot_password_find_your_account")}</h1>
-                    <Input type={INPUT_TYPES.TEXT} title={t("login_modal_phone_email_or_username_placeholder")} text={text} changeText={changeText} writing={writing} setWriting={setWriting} />
-                    <Button type={BUTTONS_TYPES.submit} marginTop={MARGINS.MD} marginBottom={MARGINS.MD} disabled={!isEmpty(error)} color={COLORS.white} backgroundColor={COLORS.black} borderColor={COLORS.gray}>
-                        {
-                            (isLoading)
-                                ?
-                                <Loader width={WIDTHS.XS} height={HEIGHTS.XS} color={COLORS.basicBlue} />
-                                :
-                                t("common_search")
-                        }
-                    </Button>
+                    <form onSubmit={e => validationUser(e, t)}>
+                        <Input type={INPUT_TYPES.TEXT} title={t("login_modal_phone_email_or_username_placeholder")} text={text} changeText={changeText} writing={writing} setWriting={setWriting} />
+                        <Button type={BUTTONS_TYPES.submit} marginTop={MARGINS.MD} marginBottom={MARGINS.MD} disabled={!isEmpty(notification)} color={COLORS.white} backgroundColor={COLORS.black} borderColor={COLORS.gray}>
+                            {
+                                (isLoading)
+                                    ?
+                                    <Loader width={WIDTHS.XS} height={HEIGHTS.XS} color={COLORS.basicBlue} />
+                                    :
+                                    t("common_search")
+                            }
+                        </Button>
+                    </form>
                 </section>
             </Modal>
             {
-                (!isEmpty(error)) && <Message type={MESSAGES_TYPE.error} width={WIDTHS.XL2} setError={setError}>{error}</Message>
+                (!isEmpty(notification)) && <Message type={MESSAGES_TYPE.error} width={WIDTHS.XL2} setNotification={setNotification}>{notification}</Message>
             }
         </>
     )

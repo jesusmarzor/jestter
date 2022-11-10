@@ -12,8 +12,8 @@ interface props {
 
 interface UseLogin {
     isLoading: boolean
-    error: string
-    setError: (value: string) => void
+    notification: string
+    setNotification: (value: string) => void
     validationUser: (e: React.FormEvent<HTMLFormElement>, t: any) => void
     validationPassword: (e: React.FormEvent<HTMLFormElement>, t: any) => void
 }
@@ -21,7 +21,7 @@ interface UseLogin {
 const useLogin = ({textUser, textPassword, nextStep, goToView}: props): UseLogin => {
 
     const [isLoading, setIsLoading] = useState<boolean>(false)
-    const [error, setError] = useState<string>("")
+    const [notification, setNotification] = useState<string>("")
     const { loginAuth } = AuthConsumer()
 
     const validationUser = (e: React.FormEvent<HTMLFormElement>, t: any) => {
@@ -34,13 +34,13 @@ const useLogin = ({textUser, textPassword, nextStep, goToView}: props): UseLogin
                     nextStep()
                     break
                 case LOGIN_ERRORS_TYPE.MANY_REQUESTS:
-                    setError(t("error_login_many_request"))
+                    setNotification(t("error_login_many_request"))
                     break
                 case LOGIN_ERRORS_TYPE.USER:
-                    setError(t("error_login_user_not_found"))
+                    setNotification(t("error_login_user_not_found"))
                     break
                 default:
-                    setError(t("error_login_user"))
+                    setNotification(t("error_login_user"))
             }
             setIsLoading(false)
         })
@@ -53,13 +53,13 @@ const useLogin = ({textUser, textPassword, nextStep, goToView}: props): UseLogin
         .then( data => {
             switch (data) {
                 case LOGIN_ERRORS_TYPE.PASSWORD:
-                    setError(t("error_login_password"))
+                    setNotification(t("error_login_password"))
                     break
                 case LOGIN_ERRORS_TYPE.MANY_REQUESTS:
-                    setError(t("error_login_many_request"))
+                    setNotification(t("error_login_many_request"))
                     break
                 case LOGIN_ERRORS_TYPE.INTERNAL:
-                    setError(t("error_login_password"))
+                    setNotification(t("error_login_password"))
                 default:
                     loginAuth(data)
                     goToView()
@@ -68,7 +68,7 @@ const useLogin = ({textUser, textPassword, nextStep, goToView}: props): UseLogin
         })
     }
 
-    return { isLoading, error, setError, validationUser, validationPassword }
+    return { isLoading, notification, setNotification, validationUser, validationPassword }
 }
 
 export default useLogin

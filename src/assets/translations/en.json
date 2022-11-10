@@ -37,5 +37,6 @@
     "error_login_password": "Sorry, wrong password",
     "forgot_password_find_your_account": "Find your Jestter account",
     "common_search": "Search",
-    "common_password": "Password"
+    "common_password": "Password",
+    "notification_reset_password": "Email sent"
 }

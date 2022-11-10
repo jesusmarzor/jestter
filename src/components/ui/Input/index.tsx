@@ -9,7 +9,7 @@ interface props {
     setWriting: (value: boolean) => void
     title: string
     type: string
-    width: string
+    width?: string
 }
 
 export const Input: React.FC<props> = ({title, text, type, changeText, writing, setWriting, width = WIDTHS.FULL}) => {
