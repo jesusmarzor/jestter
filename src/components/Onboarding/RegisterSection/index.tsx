@@ -1,6 +1,5 @@
 import { useTranslation } from "react-i18next"
-import COLORS from "../../../utils/COLORS"
-import { HEIGHTS, WIDTHS } from "../../../utils/CONSTANTS"
+import { HEIGHTS, WIDTHS, COLORS } from "../../../utils/THEME"
 import { Button } from "../../ui/Button"
 import Separator from "../../ui/Separator"
 import { FooterRegisterSection } from "./FooterRegisterSection"

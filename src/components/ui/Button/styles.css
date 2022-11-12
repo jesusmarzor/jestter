@@ -1,11 +1,9 @@
 .Button {
     border-radius: 10rem;
+    border-width: .1rem;
+    border-style: solid;
     cursor: pointer;
     font-weight: bold;
-}
-
-.Button:hover {
-    box-shadow: 0 1rem 0 1.5rem #6e6e6e22 inset;
 }
 
 .Button--disabled {

@@ -1,25 +1,20 @@
 import BUTTONS_TYPES from "../../../utils/BUTTONS_TYPES"
-import { HEIGHTS, WIDTHS } from "../../../utils/CONSTANTS"
+import { HEIGHTS, WIDTHS, MARGINS, COLORS } from "../../../utils/THEME"
+import { StyledButton, styledButtonProps } from "./styles"
 import "./styles.css"
 
-interface props {
+interface props extends styledButtonProps{
     children: string | JSX.Element
-    color: string
-    backgroundColor: string
-    borderColor?: string
-    marginTop?: number | string
-    marginBottom?: number | string
     onclick?: () => void
     disabled?: boolean
     type?: string
-    width?: string
-    height?: string
 }
-export const Button: React.FunctionComponent<props> = ({children, color, backgroundColor, borderColor = null, marginTop=0, marginBottom=0, onclick = () => {}, disabled = false, type = BUTTONS_TYPES.button, width = WIDTHS.FULL, height = HEIGHTS.MD}) => {
+
+export const Button: React.FunctionComponent<props> = ({children, color, backgroundColor, borderColor = COLORS.empty, marginTop = MARGINS.ZERO, marginBottom = MARGINS.ZERO, onclick, disabled = false, type = BUTTONS_TYPES.button, width = WIDTHS.FULL, height = HEIGHTS.MD}) => {
     switch (type) {
         case BUTTONS_TYPES.submit:
-            return <button type="submit" disabled={disabled} className={`Button ${(disabled) && 'Button--disabled'}`} style={{color: color, background: backgroundColor, marginTop: marginTop, marginBottom: marginBottom, border: `${borderColor ? `.1rem solid ${borderColor}`: "inherit"}`, width: width, height: height}} onClick={onclick} >{children}</button>
+            return <StyledButton type="submit" color={color} backgroundColor={backgroundColor} borderColor={borderColor} marginTop={marginTop} marginBottom={marginBottom} width={width} height={height} disabled={disabled} className={`Button ${(disabled) && 'Button--disabled'}`} onClick={onclick} >{children}</StyledButton>
         default:
-            return <button className="Button" style={{color: color, background: backgroundColor, marginTop: marginTop, marginBottom: marginBottom, border: `${borderColor ? `.1rem solid ${borderColor}`: "inherit"}`, width: width, height: height}} onClick={onclick} >{children}</button>
+            return <StyledButton className="Button" color={color} backgroundColor={backgroundColor} borderColor={borderColor} marginTop={marginTop} marginBottom={marginBottom} width={width} height={height} disabled={disabled} onClick={onclick} >{children}</StyledButton>
     }
 }
