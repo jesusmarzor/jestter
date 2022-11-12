@@ -1,13 +1,10 @@
 import { useEffect } from "react"
-import COLORS from "../../../utils/COLORS"
 import TYPE_MESSAGE from "../../../utils/MESSAGES_TYPE"
+import { StyledMessage, styledMessageProps } from "./styles"
 
-import "./styles.css"
-
-interface props {
+interface props extends styledMessageProps{
     children: string
     type: string
-    width: string
     setNotification: (value: string) => void
 }
 
@@ -17,5 +14,5 @@ export const Message: React.FC<props> = ({children, type, width, setNotification
             setNotification("")
         }, 5000)
     }, [children])
-    return <p className="Message" style={{ backgroundColor: `${COLORS.basicBlue}`, width: width}}>{children}</p>
+    return <StyledMessage width={width}>{children}</StyledMessage>
 }   

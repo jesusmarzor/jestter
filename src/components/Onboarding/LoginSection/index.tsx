@@ -1,8 +1,7 @@
 import { Button } from "../../ui/Button"
-import COLORS from "../../../utils/COLORS"
 import { useTranslation } from "react-i18next"
 import { ModalConsumer } from "../../../contexts/ModalContext"
-import { HEIGHTS, WIDTHS } from "../../../utils/CONSTANTS"
+import { HEIGHTS, WIDTHS, COLORS } from "../../../utils/THEME"
 import "./styles.css"
 
 export const LoginSection = () => {

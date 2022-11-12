@@ -1,16 +1,16 @@
-import COLORS from "../../../utils/COLORS"
+import { COLORS } from "../../../utils/THEME"
+import { StyledModal, styledModalProps } from "./styles"
 import "./styles.css"
 
-interface props {
+interface props extends styledModalProps{
     children: any
     onclick: () => void
     close: (value: boolean) => void
-    backgroundColor?: String
 }
 
 export const Modal: React.FC<props> = ({onclick, close, children, backgroundColor = COLORS.black66}) => {
     return(
-        <div style={{backgroundColor: `${backgroundColor ?? backgroundColor}`}} className="Modal" onClick={onclick}>
+        <StyledModal backgroundColor={backgroundColor} className="Modal" onClick={onclick}>
             <div className="Modal-section">
                 <button onClick={() => close(false)} className="Modal-close">
                     <svg className="Modal-svg" viewBox="0 0 24 24" aria-hidden="true">
@@ -21,6 +21,6 @@ export const Modal: React.FC<props> = ({onclick, close, children, backgroundColo
                 </button>
                {children}
             </div>
-        </div>
+        </StyledModal>
     )
 }
