@@ -34,9 +34,14 @@
     "error_login_user": "Sorry, we could not find your account.",
     "error_login_many_request": "Sorry, there have been too many requests.",
     "error_login_user_not_found": "Sorry, this user is not register.",
+    "error_login_email_invalid": "Sorry, the email is not valid",
     "error_login_password": "Sorry, wrong password",
     "forgot_password_find_your_account": "Find your Jestter account",
     "common_search": "Search",
     "common_password": "Password",
-    "notification_reset_password": "Email sent"
+    "notification_reset_password": "Email sent",
+    "common_name": "Name",
+    "common_email": "Email",
+    "error_register_user": "Sorry, the email already in use",
+    "error_register_password": "Sorry, the password is not valid"
 }

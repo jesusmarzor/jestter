@@ -33,10 +33,15 @@
     "login_modal_footer": "¿No tienes cuenta? Registrarse",
     "error_login_user": "Lo siento, no encontramos tu cuenta.",
     "error_login_many_request": "Lo siento, han habido demasiadas solicitudes.",
-    "error_login_user_not_found": "Lo siento, este usuario no está registrado.",
+    "error_login_user_not_found": "Lo siento, el usuario no está registrado.",
+    "error_login_email_invalid": "Lo siento, el email no es valido",
     "error_login_password": "Lo siento, la contraseña es incorrecta",
     "forgot_password_find_your_account": "Buscar tu cuenta de Jestter",
     "common_search": "Buscar",
     "common_password": "Contraseña",
-    "notification_reset_password": "Email enviado"
+    "notification_reset_password": "Email enviado",
+    "common_name": "Nombre",
+    "common_email": "Email",
+    "error_register_email": "Lo siento, el email ya está en uso",
+    "error_register_password": "Lo siento, la contraseña no es válida"
 }
