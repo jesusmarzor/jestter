@@ -27,7 +27,7 @@ const ResetPassword = () => {
                 <section className="ResetPassword">
                     <h1 className="ResetPassword-title">{t("forgot_password_find_your_account")}</h1>
                     <form onSubmit={e => validationUser(e, t)}>
-                        <Input type={INPUT_TYPES.TEXT} title={t("login_modal_phone_email_or_username_placeholder")} text={text} changeText={changeText} writing={writing} setWriting={setWriting} />
+                        <Input type={INPUT_TYPES.TEXT} title={t("common_email")} text={text} changeText={changeText} writing={writing} setWriting={setWriting} />
                         <Button type={BUTTONS_TYPES.submit} marginTop={MARGINS.MD} marginBottom={MARGINS.MD} disabled={!isEmpty(notification)} color={COLORS.white} backgroundColor={COLORS.black} borderColor={COLORS.gray}>
                             {
                                 (isLoading)

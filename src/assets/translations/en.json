@@ -43,5 +43,7 @@
     "common_name": "Name",
     "common_email": "Email",
     "error_register_user": "Sorry, the email already in use",
-    "error_register_password": "Sorry, the password is not valid"
+    "error_register_password": "Sorry, the password is not valid",
+    "register_modal_title": "Create your account",
+    "common_register": "Sign in"
 }

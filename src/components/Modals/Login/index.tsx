@@ -43,7 +43,7 @@ export const Login: React.FC<props> = ({ goToView }) => {
                             (step === 0)
                                 ?
                                 <>
-                                    <Input type={INPUT_TYPES.TEXT} title={t("login_modal_phone_email_or_username_placeholder")} text={textUser} changeText={changeTextUser} writing={writingUser} setWriting={setWritingUser} />
+                                    <Input type={INPUT_TYPES.TEXT} title={t("common_email")} text={textUser} changeText={changeTextUser} writing={writingUser} setWriting={setWritingUser} />
                                     <Button type={BUTTONS_TYPES.submit} marginTop={MARGINS.MD} marginBottom={MARGINS.MD} disabled={!isEmpty(notification)} color={COLORS.white} backgroundColor={COLORS.black} borderColor={COLORS.gray}>
                                         {
                                             (isLoading)
