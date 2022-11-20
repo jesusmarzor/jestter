@@ -1,7 +1,8 @@
 import { useState } from "react"
-import { register } from "../config/firebase"
+import { register, updateUser } from "../config/firebase"
+import { AuthConsumer } from "../contexts/AuthContext"
 import { REGISTER_ERRORS_TYPE } from "../utils/ERRORS_TYPE"
-import { validatePassword } from "../utils/VALIDATIONS"
+import { isEmpty, validatePassword } from "../utils/VALIDATIONS"
 
 interface props {
     name: string
@@ -26,16 +27,18 @@ const useRegister = ({name, email, password, confirmPassword}: props): useRegist
         e.preventDefault()
         if (validatePassword(password, confirmPassword)) {
             setIsLoading(true)
-            register(email, password)
-            .then( data => {
+            register(name, email, password)
+            .then( async data => {
                 switch ( data ) {
                     case REGISTER_ERRORS_TYPE.EMAIL_IN_USE:
                         setNotification(t("error_register_email"))
                         break
                     case REGISTER_ERRORS_TYPE.MISSING_EMAIL || REGISTER_ERRORS_TYPE.INVALID_EMAIL:
                         setNotification(t("error_login_email_invalid"))
+                    case REGISTER_ERRORS_TYPE.INVALID_NAME:
+                        setNotification(t("error_register_name"))
                     default:
-                        // SAVE NAME USER, SAVE USER IN CONTEXT AND REDIRECT LOGIN
+                        setNotification(t("register_email_sent"))
                 }
                 setIsLoading(false)
             })

@@ -1,6 +1,8 @@
 import { initializeApp } from "firebase/app"
 import { getFirestore, collection, getDocs, addDoc } from 'firebase/firestore/lite';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendPasswordResetEmail } from "firebase/auth"
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendPasswordResetEmail, User, updateProfile, sendEmailVerification, deleteUser } from "firebase/auth"
+import { isEmpty } from "../utils/VALIDATIONS";
+import { LOGIN_ERRORS_TYPE, REGISTER_ERRORS_TYPE } from "../utils/ERRORS_TYPE";
 
 const { VITE_APP_API_KEY, VITE_APP_AUTH_DOMAIN, VITE_APP_PROJECT_ID, VITE_APP_STORAGE_BUCKET, VITE_APP_MESSAGING_SENDER_ID, VITE_APP_APP_ID, VITE_APP_MEASUREMENT_ID } = import.meta.env
 
@@ -18,10 +20,21 @@ const app = initializeApp(firebaseConfig)
 export const db = getFirestore(app)
 const auth = getAuth(app)
 
-export const register = async (email: string, password: string) => {
+export const register = async (name: string, email: string, password: string) => {
     try{
       const userCredential = await createUserWithEmailAndPassword(auth, email, password)
-      const user = userCredential.user
+      if (!isEmpty(name) && !(await updateUser(userCredential.user, { displayName: name })) && await deleteAccount(userCredential.user)){
+        return REGISTER_ERRORS_TYPE.INVALID_NAME
+      }
+      await sendEmailVerification(userCredential.user)
+      const user: UserJestter = {
+        uid: userCredential.user.uid,
+        name: userCredential.user.displayName,
+        email: userCredential.user.email,
+        emailVerified: userCredential.user.emailVerified,
+        photoURL: userCredential.user.photoURL,
+        phoneNumber: userCredential.user.phoneNumber
+      }
       return user
     }catch (error: any) {
       return error.code
@@ -32,7 +45,11 @@ export const register = async (email: string, password: string) => {
 export const login = async (email: string, password: string) => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password)
-      const user: User = {
+      if (!userCredential.user.emailVerified) {
+        logout()
+        return LOGIN_ERRORS_TYPE.NOT_VERIFIED
+      }
+      const user: UserJestter = {
         uid: userCredential.user.uid,
         name: userCredential.user.displayName,
         email: userCredential.user.email,
@@ -60,6 +77,24 @@ export const resetPassword = async (email: string) => {
     await sendPasswordResetEmail(auth, email)
     return true
   } catch (error) {
+    return false
+  }
+}
+
+export const updateUser = async (user: User, data: updateUserJestterData) => {
+  try {
+    await updateProfile(user, data)
+    return true
+  } catch {
+    return false
+  }
+}
+
+export const deleteAccount = async (user: User) => {
+  try {
+    await deleteUser(user)
+    return true
+  } catch {
     return false
   }
 }

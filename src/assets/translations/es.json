@@ -1,5 +1,5 @@
 {
-    "login_title": "Está sucendiendo",
+    "onboarding_title": "Está sucendiendo",
     "register_section_title": "Entra en Jestter hoy.",
     "register_section_button_google_label": "Registrate con Google",
     "register_section_button_email_label": "Registrate con email",
@@ -45,5 +45,8 @@
     "error_register_email": "Lo siento, el email ya está en uso",
     "error_register_password": "Lo siento, la contraseña no es válida",
     "register_modal_title": "Crea tu cuenta",
-    "common_register": "Registrarse"
+    "common_register": "Registrarse",
+    "register_email_sent": "Email de registro enviado",
+    "error_register_name": "Lo siento, el nombre no es valido",
+    "error_login_not_verified": "Lo siento, el email no está verificado"
 }
