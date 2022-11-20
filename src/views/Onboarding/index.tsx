@@ -27,7 +27,7 @@ const Onboarding = () => {
         <div className="Onboarding">
             <div className="Onboarding-section">
                 <Header/>
-                <RegisterSection/>
+                <RegisterSection goToView={goToView}/>
                 <LoginSection/>
             </div>
             <picture className="Onboarding-picture">

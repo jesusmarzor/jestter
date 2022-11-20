@@ -1,7 +1,7 @@
 {
     "onboarding_title": "Happening now",
     "register_section_title": "Join Jestter today.",
-    "register_section_button_google_label": "Sign up with Google",
+    "register_section_button_github_label": "Sign up with Github",
     "register_section_button_email_label": "Sign up with email",
     "register_section_footer": "By signing up, you agree to the Terms of Service and Privacy Policy, including Cookie Use.",
     "login_section_title": "Already have an account?",
@@ -26,7 +26,7 @@
     "settings": "Settings",
     "twitter_copy_by": "Twitter copy by",
     "login_modal_title": "Sign in to Jestter",
-    "login_modal_button_google": "Sign in with Google",
+    "login_modal_button_github": "Sign in with Github",
     "login_modal_phone_email_or_username_placeholder": "Phone, email or username",
     "common_next": "Next",
     "common_forgot_password": "Forgot password?",
