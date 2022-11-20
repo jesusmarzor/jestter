@@ -29,6 +29,7 @@ const useLogin = ({textUser, textPassword, nextStep, goToView}: props): UseLogin
         setIsLoading(true)
         login(textUser, " ")
         .then( data => {
+            console.log(data)
             switch (data) {
                 case LOGIN_ERRORS_TYPE.PASSWORD:
                     nextStep()
@@ -38,6 +39,9 @@ const useLogin = ({textUser, textPassword, nextStep, goToView}: props): UseLogin
                     break
                 case LOGIN_ERRORS_TYPE.USER:
                     setNotification(t("error_login_user_not_found"))
+                    break
+                case LOGIN_ERRORS_TYPE.INVALID_EMAIL:
+                    setNotification(t("error_login_email_invalid"))
                     break
                 default:
                     setNotification(t("error_login_user"))

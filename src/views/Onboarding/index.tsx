@@ -11,11 +11,12 @@ import { HEIGHTS, WIDTHS, COLORS } from "../../utils/THEME"
 import { ModalConsumer } from "../../contexts/ModalContext"
 import ResetPassword from "../../components/Modals/ResetPassword"
 import "./styles.css"
+import { Register } from "../../components/Modals/Register"
 
 const Onboarding = () => {
     const navigate = useNavigate()
     const locate = useLocation()
-    const { isModalLogin, isModalResetPassword } = ModalConsumer()
+    const { isModalLogin, isModalResetPassword, isModalRegister } = ModalConsumer()
 
     const goToView = () => {
         navigate(locate?.state?.pathname ?? LOCATION_HOME)
@@ -38,6 +39,7 @@ const Onboarding = () => {
             <Footer/>
         </div>
         {(isModalLogin) && <Login goToView={goToView}/>}
+        {(isModalRegister) && <Register/>}
         {(isModalResetPassword) && <ResetPassword/>}
         </>
     )

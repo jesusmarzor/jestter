@@ -7,5 +7,7 @@ export const LOGIN_ERRORS_TYPE = {
 }
 
 export const REGISTER_ERRORS_TYPE = {
-    EMAIL_IN_USE: "auth/email-already-in-use"
+    EMAIL_IN_USE: "auth/email-already-in-use",
+    MISSING_EMAIL: "auth/missing-email",
+    INVALID_EMAIL: "auth/invalid-email"
 }
