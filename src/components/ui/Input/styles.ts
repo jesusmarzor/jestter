@@ -2,8 +2,9 @@ import { COLORS } from "../../../utils/THEME"
 import styled from "styled-components"
 
 interface styledInputProps {
-    width?: string
+    width: string
     actived: boolean
+    marginY: string
 }
 
 interface styledInputParagraphProps{
@@ -18,6 +19,8 @@ export const StyledInput = styled.div<styledInputProps>`
     border-radius: .3rem;
     padding: .5rem;
     width: ${ ({width}) => width };
+    margin-top: ${ ({marginY}) => marginY};
+    margin-bottom: ${ ({marginY}) => marginY};
     border: .1rem solid ${ ({actived}) => (actived) ? COLORS.basicBlue: COLORS.gray };
 `
 
