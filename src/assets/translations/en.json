@@ -45,5 +45,8 @@
     "error_register_user": "Sorry, the email already in use",
     "error_register_password": "Sorry, the password is not valid",
     "register_modal_title": "Create your account",
-    "common_register": "Sign in"
+    "common_register": "Sign in",
+    "register_email_sent": "Registration email sent",
+    "error_register_name": "Sorry, the name is not valid",
+    "error_login_not_verified": "Sorry, the email is not verified"
 }
