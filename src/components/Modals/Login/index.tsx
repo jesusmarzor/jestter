@@ -17,6 +17,7 @@ import { MAX_STEP_LOGIN_MODAL } from "../../../utils/CONSTANTS"
 import { COLORS, HEIGHTS, MARGINS, WIDTHS } from "../../../utils/THEME"
 import INPUT_TYPES from "../../../utils/INPUT_TYPES"
 import "./styles.css"
+import { AuthConsumer } from "../../../contexts/AuthContext"
 
 interface props {
     goToView: () => void
@@ -29,6 +30,7 @@ export const Login: React.FC<props> = ({ goToView }) => {
     const { isLoading, notification, setNotification, validationUser, validationPassword } = useLogin({ textUser, textPassword, nextStep, goToView })
     const { t } = useTranslation()
     const { setIsModalLogin: setIsModal, setIsModalResetPassword } = ModalConsumer()
+    const { loginAuthWithGithub } = AuthConsumer()
 
     return (
         <>
@@ -36,7 +38,7 @@ export const Login: React.FC<props> = ({ goToView }) => {
                 <Hedgehog width={WIDTHS.MD_EXT} height={HEIGHTS.MD_EXT} fill={COLORS.basicBlue} />
                 <section className="Login">
                     <h2 className="Login-title">{t("login_modal_title")}</h2>
-                    <Button color={COLORS.black} backgroundColor={COLORS.white} borderColor={COLORS.gray}>{t("login_modal_button_google")}</Button>
+                    <Button onclick={() => loginAuthWithGithub(goToView)} color={COLORS.black} backgroundColor={COLORS.white} borderColor={COLORS.gray}>{t("login_modal_button_github")}</Button>
                     <Separator>{t("common_or")}</Separator>
                     <form onSubmit={e => (step === 0) ? validationUser(e, t) : validationPassword(e, t)}>
                         {

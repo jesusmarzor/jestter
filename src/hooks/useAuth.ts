@@ -1,11 +1,24 @@
 import { useEffect, useState } from "react"
+import { loginWithGithub, logout } from "../config/firebase"
 
 export const useAuth = () => {
-    const [user, setUser] = useState<User | null>(null)
+    const [user, setUser] = useState<UserJestter | null>(null)
 
-    const loginAuth = (user: User) => setUser(user)
+    const loginAuth = (user: UserJestter, goToView: () => void) => {
+        setUser(user)
+        console.log(user)
+        goToView()
+    }
 
-    const registerAuth = (user: User) => {}
+    const loginAuthWithGithub = async (goToView: () => void) => {
+        const user = await loginWithGithub()
+        loginAuth(user, goToView)
+    }
 
-    return {user, loginAuth}
+    const logoutAuth = () => {
+        setUser(null)
+        logout()
+    }
+
+    return {user, loginAuth, loginAuthWithGithub}
 }

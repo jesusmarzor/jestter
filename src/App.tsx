@@ -15,14 +15,12 @@ function App() {
           <BrowserRouter>
           <Routes>
             <Route 
-              path="/" 
-              element = {<RequireAuth><Home/></RequireAuth>}
+              index
+              element = {<RequireAuth><Home /></RequireAuth>}
             />
-          </Routes>
-          <Routes>
             <Route 
               path="/login" 
-              element = {<Onboarding/>}
+              element = {<Onboarding />}
             />
           </Routes>
           </BrowserRouter>

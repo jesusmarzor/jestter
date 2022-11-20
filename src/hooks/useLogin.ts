@@ -68,8 +68,7 @@ const useLogin = ({textUser, textPassword, nextStep, goToView}: props): UseLogin
                     setNotification(t("error_login_not_verified"))
                     break
                 default:
-                    loginAuth(data)
-                    goToView()
+                    loginAuth(data, goToView)
             }
             setIsLoading(false)
         })

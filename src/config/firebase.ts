@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app"
 import { getFirestore, collection, getDocs, addDoc } from 'firebase/firestore/lite';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendPasswordResetEmail, User, updateProfile, sendEmailVerification, deleteUser } from "firebase/auth"
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendPasswordResetEmail, User, updateProfile, sendEmailVerification, deleteUser, GithubAuthProvider, signInWithPopup } from "firebase/auth"
 import { isEmpty } from "../utils/VALIDATIONS";
 import { LOGIN_ERRORS_TYPE, REGISTER_ERRORS_TYPE } from "../utils/ERRORS_TYPE";
 
@@ -97,4 +97,24 @@ export const deleteAccount = async (user: User) => {
   } catch {
     return false
   }
+}
+
+export const loginWithGithub = async () => {
+  try {
+    const githubProvider = new GithubAuthProvider()
+    console.log(auth)
+    const userCredential = await signInWithPopup(auth, githubProvider)
+    const user: UserJestter = {
+      uid: userCredential.user.uid,
+      name: userCredential.user.displayName,
+      email: userCredential.user.email,
+      emailVerified: userCredential.user.emailVerified,
+      photoURL: userCredential.user.photoURL,
+      phoneNumber: userCredential.user.phoneNumber
+    }
+    return user
+  } catch (error: any){
+    return error.code
+  }
+  
 }
