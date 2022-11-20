@@ -13,6 +13,7 @@ import useRegister from "../../../hooks/useRegister"
 import { Loader } from "../../ui/Loader"
 import { Message } from "../../ui/Message"
 import MESSAGES_TYPE from "../../../utils/MESSAGES_TYPE"
+import "./styles.css"
 
 export const Register = () => {
     const { t } = useTranslation()
@@ -37,10 +38,10 @@ export const Register = () => {
                         <form onSubmit={(e) => {registerUser(e, t)}}>
                             {
                                 <>
-                                    <Input type={INPUT_TYPES.TEXT} title={t("common_name")} text={textName} changeText={changeTextName} writing={writingName} setWriting={setWritingName} />
-                                    <Input type={INPUT_TYPES.TEXT} title={t("common_email")} text={textEmail} changeText={changeTextEmail} writing={writingEmail} setWriting={setWritingEmail} />
-                                    <Input type={INPUT_TYPES.PASSWORD} title={t("common_password")} text={textPassword} changeText={changeTextPassword} writing={writingPassword} setWriting={setWritingPassword} />
-                                    <Input type={INPUT_TYPES.PASSWORD} title={t("common_password")} text={textConfirmPassword} changeText={changeTextConfirmPassword} writing={writingConfirmPassword} setWriting={setWritingConfirmPassword} />
+                                    <Input type={INPUT_TYPES.TEXT} title={t("common_name")} text={textName} changeText={changeTextName} writing={writingName} setWriting={setWritingName} marginY={MARGINS.SM}/>
+                                    <Input type={INPUT_TYPES.TEXT} title={t("common_email")} text={textEmail} changeText={changeTextEmail} writing={writingEmail} setWriting={setWritingEmail} marginY={MARGINS.SM} />
+                                    <Input type={INPUT_TYPES.PASSWORD} title={t("common_password")} text={textPassword} changeText={changeTextPassword} writing={writingPassword} setWriting={setWritingPassword} marginY={MARGINS.SM} />
+                                    <Input type={INPUT_TYPES.PASSWORD} title={t("common_password")} text={textConfirmPassword} changeText={changeTextConfirmPassword} writing={writingConfirmPassword} setWriting={setWritingConfirmPassword} marginY={MARGINS.SM} />
                                     <Button type={BUTTONS_TYPES.submit} marginTop={MARGINS.MD} marginBottom={MARGINS.MD} disabled={!isEmpty(notification)} color={COLORS.white} backgroundColor={COLORS.black} borderColor={COLORS.gray}>
                                         {
                                             (isLoading)
