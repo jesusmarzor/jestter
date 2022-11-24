@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { loginWithGithub, logout } from "../config/firebase"
 
 export const useAuth = () => {
@@ -6,7 +6,6 @@ export const useAuth = () => {
 
     const loginAuth = (user: UserJestter, goToView: () => void) => {
         setUser(user)
-        console.log(user)
         goToView()
     }
 
@@ -20,5 +19,5 @@ export const useAuth = () => {
         logout()
     }
 
-    return {user, loginAuth, loginAuthWithGithub}
+    return {user, loginAuth, loginAuthWithGithub, logoutAuth}
 }

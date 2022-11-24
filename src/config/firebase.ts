@@ -1,8 +1,9 @@
 import { initializeApp } from "firebase/app"
 import { getFirestore, collection, getDocs, addDoc } from 'firebase/firestore/lite';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendPasswordResetEmail, User, updateProfile, sendEmailVerification, deleteUser, GithubAuthProvider, signInWithPopup } from "firebase/auth"
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendPasswordResetEmail, User, updateProfile, sendEmailVerification, deleteUser, GithubAuthProvider, signInWithPopup, onAuthStateChanged } from "firebase/auth"
 import { isEmpty } from "../utils/VALIDATIONS";
 import { LOGIN_ERRORS_TYPE, REGISTER_ERRORS_TYPE } from "../utils/ERRORS_TYPE";
+import userToUserJestter from "../utils/userToUserJestter";
 
 const { VITE_APP_API_KEY, VITE_APP_AUTH_DOMAIN, VITE_APP_PROJECT_ID, VITE_APP_STORAGE_BUCKET, VITE_APP_MESSAGING_SENDER_ID, VITE_APP_APP_ID, VITE_APP_MEASUREMENT_ID } = import.meta.env
 
@@ -49,14 +50,7 @@ export const login = async (email: string, password: string) => {
         logout()
         return LOGIN_ERRORS_TYPE.NOT_VERIFIED
       }
-      const user: UserJestter = {
-        uid: userCredential.user.uid,
-        name: userCredential.user.displayName,
-        email: userCredential.user.email,
-        emailVerified: userCredential.user.emailVerified,
-        photoURL: userCredential.user.photoURL,
-        phoneNumber: userCredential.user.phoneNumber
-      }
+      const user = userToUserJestter(userCredential.user)
       return user
     } catch (error: any) {
       return error.code
@@ -102,19 +96,23 @@ export const deleteAccount = async (user: User) => {
 export const loginWithGithub = async () => {
   try {
     const githubProvider = new GithubAuthProvider()
-    console.log(auth)
     const userCredential = await signInWithPopup(auth, githubProvider)
-    const user: UserJestter = {
-      uid: userCredential.user.uid,
-      name: userCredential.user.displayName,
-      email: userCredential.user.email,
-      emailVerified: userCredential.user.emailVerified,
-      photoURL: userCredential.user.photoURL,
-      phoneNumber: userCredential.user.phoneNumber
-    }
+    const user = userToUserJestter(userCredential.user)
     return user
   } catch (error: any){
     return error.code
   }
   
+}
+
+export const onAuthUser = (loginAuth: any, goToView: any, setIsLoading: any) => {
+  onAuthStateChanged(auth, firebaseUser => {
+    if (firebaseUser != null) {
+      const user = userToUserJestter(firebaseUser)
+      loginAuth(user, goToView)
+      setIsLoading(false)
+    } else {
+      setTimeout(() => setIsLoading(false), 400)
+    }
+  })
 }
