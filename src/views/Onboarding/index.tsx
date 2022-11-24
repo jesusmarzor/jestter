@@ -12,11 +12,20 @@ import { ModalConsumer } from "../../contexts/ModalContext"
 import ResetPassword from "../../components/Modals/ResetPassword"
 import "./styles.css"
 import { Register } from "../../components/Modals/Register"
+import { useEffect, useState } from "react"
+import { onAuthUser } from "../../config/firebase"
+import { AuthConsumer } from "../../contexts/AuthContext"
 
 const Onboarding = () => {
     const navigate = useNavigate()
     const locate = useLocation()
     const { isModalLogin, isModalResetPassword, isModalRegister } = ModalConsumer()
+    const { loginAuth } = AuthConsumer()
+    const [isLoading, setIsLoading] = useState<boolean>(true)
+
+    useEffect( () => {
+        onAuthUser(loginAuth, goToView, setIsLoading)
+    }, [])
 
     const goToView = () => {
         navigate(locate?.state?.pathname ?? LOCATION_HOME)
@@ -41,6 +50,12 @@ const Onboarding = () => {
         {(isModalLogin) && <Login goToView={goToView}/>}
         {(isModalRegister) && <Register/>}
         {(isModalResetPassword) && <ResetPassword/>}
+        {
+        (isLoading) && 
+        <div className="Loading">
+            <Hedgehog width={WIDTHS.MD_EXT3} height={HEIGHTS.MD_EXT3} fill={COLORS.basicBlue}/>
+        </div>
+        }
         </>
     )
 }

@@ -34,6 +34,17 @@
     transform: translate(-50%, -50%);
 }
 
+.Loading {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
 @media (max-width: 1000px) {
     .Onboarding {
         flex-flow: column nowrap;
