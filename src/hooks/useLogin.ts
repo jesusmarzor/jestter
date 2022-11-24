@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { login } from "../config/firebase"
 import { AuthConsumer } from "../contexts/AuthContext"
+import { ModalConsumer } from "../contexts/ModalContext"
 import { LOGIN_ERRORS_TYPE } from "../utils/ERRORS_TYPE"
 
 interface props {
@@ -16,6 +17,7 @@ interface UseLogin {
     setNotification: (value: string) => void
     validationUser: (e: React.FormEvent<HTMLFormElement>, t: any) => void
     validationPassword: (e: React.FormEvent<HTMLFormElement>, t: any) => void
+    goToRegisterModal: () => void
 }
 
 const useLogin = ({textUser, textPassword, nextStep, goToView}: props): UseLogin => {
@@ -23,6 +25,7 @@ const useLogin = ({textUser, textPassword, nextStep, goToView}: props): UseLogin
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [notification, setNotification] = useState<string>("")
     const { loginAuth } = AuthConsumer()
+    const { setIsModalLogin, setIsModalRegister } = ModalConsumer()
 
     const validationUser = (e: React.FormEvent<HTMLFormElement>, t: any) => {
         e.preventDefault()
@@ -74,7 +77,12 @@ const useLogin = ({textUser, textPassword, nextStep, goToView}: props): UseLogin
         })
     }
 
-    return { isLoading, notification, setNotification, validationUser, validationPassword }
+    const goToRegisterModal = () => {
+        setIsModalLogin(false)
+        setIsModalRegister(true)
+    }
+
+    return { isLoading, notification, setNotification, validationUser, validationPassword, goToRegisterModal }
 }
 
 export default useLogin

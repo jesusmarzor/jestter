@@ -1,4 +1,4 @@
-import { useTranslation } from "react-i18next"
+import { Trans, useTranslation } from "react-i18next"
 import { Modal } from "../../ui/Modal"
 import { Button } from "../../ui/Button"
 import { Input } from "../../ui/Input"
@@ -18,6 +18,14 @@ import { COLORS, HEIGHTS, MARGINS, WIDTHS } from "../../../utils/THEME"
 import INPUT_TYPES from "../../../utils/INPUT_TYPES"
 import "./styles.css"
 import { AuthConsumer } from "../../../contexts/AuthContext"
+import styled from "styled-components"
+
+const LinkButton = styled.button`
+    color: ${COLORS.basicBlue};
+    background-color: ${COLORS.empty};
+    outline: none;
+    border: none;
+`
 
 interface props {
     goToView: () => void
@@ -27,7 +35,7 @@ export const Login: React.FC<props> = ({ goToView }) => {
     const { text: textUser, writing: writingUser, setWriting: setWritingUser, changeText: changeTextUser, clickOutInput: clickOutInputUser } = useInput()
     const { text: textPassword, writing: writingPassword, setWriting: setWritingPassword, changeText: changeTextPassword, clickOutInput: clickOutInputPassword } = useInput()
     const { step, nextStep } = useSteps({ maxStep: MAX_STEP_LOGIN_MODAL })
-    const { isLoading, notification, setNotification, validationUser, validationPassword } = useLogin({ textUser, textPassword, nextStep, goToView })
+    const { isLoading, notification, setNotification, validationUser, validationPassword, goToRegisterModal } = useLogin({ textUser, textPassword, nextStep, goToView })
     const { t } = useTranslation()
     const { setIsModalLogin: setIsModal, setIsModalResetPassword } = ModalConsumer()
     const { loginAuthWithGithub } = AuthConsumer()
@@ -65,7 +73,9 @@ export const Login: React.FC<props> = ({ goToView }) => {
                     </form>
                     <Button onclick={() => setIsModalResetPassword(true)} color={COLORS.black} backgroundColor={COLORS.white} borderColor={COLORS.gray}>{t("common_forgot_password")}</Button>
                     <footer className="Login-footer">
-                        <p>{t("login_modal_footer")}</p>
+                        <Trans i18nKey={"login_modal_footer"}>
+                            <LinkButton onClick={() => goToRegisterModal()}></LinkButton >
+                        </Trans>
                     </footer>
                 </section>
             </Modal>
