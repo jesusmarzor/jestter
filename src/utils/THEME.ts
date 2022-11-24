@@ -12,6 +12,7 @@ export const WIDTHS = {
     XS: "1.2rem",
     MD_EXT: "3.125rem",
     MD_EXT2: "3.75rem",
+    MD_EXT3: "7rem",
     XL: "18.75rem",
     XL2: "21.875rem",
     XL3: "50rem",
@@ -23,6 +24,7 @@ export const HEIGHTS = {
     MD: "3rem",
     MD_EXT: "3.125rem",
     MD_EXT2: "3.75rem",
+    MD_EXT3: "7rem",
     XL2: "21.875rem",
     XL3: "50rem",
     FULL: "100%"
