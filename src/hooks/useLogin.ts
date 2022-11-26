@@ -37,16 +37,13 @@ const useLogin = ({textUser, textPassword, nextStep, goToView}: props): UseLogin
                     nextStep()
                     break
                 case LOGIN_ERRORS_TYPE.MANY_REQUESTS:
-                    setNotification(t("error_login_many_request"))
-                    break
-                case LOGIN_ERRORS_TYPE.USER:
-                    setNotification(t("error_login_user_not_found"))
+                    setNotification(t("alert.error.many_request"))
                     break
                 case LOGIN_ERRORS_TYPE.INVALID_EMAIL:
-                    setNotification(t("error_login_email_invalid"))
+                    setNotification(t("alert.error.email_invalid"))
                     break
                 default:
-                    setNotification(t("error_login_user"))
+                    setNotification(t("alert.error.user_not_found"))
             }
             setIsLoading(false)
         })
@@ -58,17 +55,14 @@ const useLogin = ({textUser, textPassword, nextStep, goToView}: props): UseLogin
         login(textUser, textPassword)
         .then( data => {
             switch (data) {
-                case LOGIN_ERRORS_TYPE.PASSWORD:
-                    setNotification(t("error_login_password"))
+                case LOGIN_ERRORS_TYPE.PASSWORD, LOGIN_ERRORS_TYPE.INTERNAL:
+                    setNotification(t("alert.error.password"))
                     break
                 case LOGIN_ERRORS_TYPE.MANY_REQUESTS:
-                    setNotification(t("error_login_many_request"))
-                    break
-                case LOGIN_ERRORS_TYPE.INTERNAL:
-                    setNotification(t("error_login_password"))
+                    setNotification(t("alert.error.many_request"))
                     break
                 case LOGIN_ERRORS_TYPE.NOT_VERIFIED:
-                    setNotification(t("error_login_not_verified"))
+                    setNotification(t("alert.error.email_not_verified"))
                     break
                 default:
                     loginAuth(data, goToView)

@@ -31,19 +31,19 @@ const useRegister = ({name, email, password, confirmPassword}: props): useRegist
             .then( async data => {
                 switch ( data ) {
                     case REGISTER_ERRORS_TYPE.EMAIL_IN_USE:
-                        setNotification(t("error_register_email"))
+                        setNotification(t("alert.error.email_in_used"))
                         break
                     case REGISTER_ERRORS_TYPE.MISSING_EMAIL || REGISTER_ERRORS_TYPE.INVALID_EMAIL:
-                        setNotification(t("error_login_email_invalid"))
+                        setNotification(t("alert.error.email_invalid"))
                     case REGISTER_ERRORS_TYPE.INVALID_NAME:
-                        setNotification(t("error_register_name"))
+                        setNotification(t("alert.error.name"))
                     default:
-                        setNotification(t("register_email_sent"))
+                        setNotification(t("alert.success.email_sent"))
                 }
                 setIsLoading(false)
             })
         } else {
-            setNotification(t("error_register_password"))
+            setNotification(t("alert.error.password_invalid"))
         }
     }
 

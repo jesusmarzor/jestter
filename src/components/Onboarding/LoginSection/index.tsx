@@ -9,8 +9,8 @@ export const LoginSection = () => {
     const { setIsModalLogin: setIsModal } = ModalConsumer()
     return(
         <section className="LoginSection">
-            <h2 className="LoginSection-title">{t("login_section_title")}</h2>
-            <Button onclick={() => setIsModal(true)} color={COLORS.basicBlue} backgroundColor={COLORS.white} borderColor={COLORS.gray} width={WIDTHS.XL} height={HEIGHTS.SM}>{t("login_section_button_label")}</Button>
+            <h2 className="LoginSection-title">{t("onboarding.login.title")}</h2>
+            <Button onclick={() => setIsModal(true)} color={COLORS.basicBlue} backgroundColor={COLORS.white} borderColor={COLORS.gray} width={WIDTHS.XL} height={HEIGHTS.SM}>{t("common.sign_in")}</Button>
         </section>
     )
 }

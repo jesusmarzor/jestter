@@ -1,4 +1,4 @@
-import { Trans, useTranslation } from "react-i18next"
+import { Trans } from "react-i18next"
 import { COLORS } from "../../../../utils/THEME"
 import "./styles.css"
 import styled from "styled-components"
@@ -13,11 +13,10 @@ const LinkJestter = styled(Link)`
 `
 
 export const FooterRegisterSection = () => {
-    const { t } = useTranslation()
     return (
         <footer className="FooterRegisterSection">
             <Paragraph className="FooterRegisterSection-p">
-                <Trans i18nKey={"register_section_footer"}>
+                <Trans i18nKey={"onboarding.register.footer"}>
                     <LinkJestter to=""></LinkJestter>
                     <LinkJestter to=""></LinkJestter>
                     <LinkJestter to=""></LinkJestter>

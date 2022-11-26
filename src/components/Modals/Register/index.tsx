@@ -34,21 +34,21 @@ export const Register = () => {
             <Modal close={() => { setIsModalRegister(false)} } onclick={clickOutAllInput}>
                 <Hedgehog width={WIDTHS.MD_EXT} height={HEIGHTS.MD_EXT} fill={COLORS.basicBlue} />
                 <section className="Register">
-                        <h2 className="Register-title">{t("register_modal_title")}</h2>
+                        <h2 className="Register-title">{t("modal.register.title")}</h2>
                         <form onSubmit={(e) => {registerUser(e, t)}}>
                             {
                                 <>
-                                    <Input type={INPUT_TYPES.TEXT} title={t("common_name")} text={textName} changeText={changeTextName} writing={writingName} setWriting={setWritingName} marginY={MARGINS.SM}/>
-                                    <Input type={INPUT_TYPES.TEXT} title={t("common_email")} text={textEmail} changeText={changeTextEmail} writing={writingEmail} setWriting={setWritingEmail} marginY={MARGINS.SM} />
-                                    <Input type={INPUT_TYPES.PASSWORD} title={t("common_password")} text={textPassword} changeText={changeTextPassword} writing={writingPassword} setWriting={setWritingPassword} marginY={MARGINS.SM} />
-                                    <Input type={INPUT_TYPES.PASSWORD} title={t("common_password")} text={textConfirmPassword} changeText={changeTextConfirmPassword} writing={writingConfirmPassword} setWriting={setWritingConfirmPassword} marginY={MARGINS.SM} />
+                                    <Input type={INPUT_TYPES.TEXT} title={t("common.name")} text={textName} changeText={changeTextName} writing={writingName} setWriting={setWritingName} marginY={MARGINS.SM}/>
+                                    <Input type={INPUT_TYPES.TEXT} title={t("common.email")} text={textEmail} changeText={changeTextEmail} writing={writingEmail} setWriting={setWritingEmail} marginY={MARGINS.SM} />
+                                    <Input type={INPUT_TYPES.PASSWORD} title={t("common.password")} text={textPassword} changeText={changeTextPassword} writing={writingPassword} setWriting={setWritingPassword} marginY={MARGINS.SM} />
+                                    <Input type={INPUT_TYPES.PASSWORD} title={t("common.repeat_password")} text={textConfirmPassword} changeText={changeTextConfirmPassword} writing={writingConfirmPassword} setWriting={setWritingConfirmPassword} marginY={MARGINS.SM} />
                                     <Button type={BUTTONS_TYPES.submit} marginTop={MARGINS.MD} marginBottom={MARGINS.MD} disabled={!isEmpty(notification)} color={COLORS.white} backgroundColor={COLORS.black} borderColor={COLORS.gray}>
                                         {
                                             (isLoading)
                                                 ?
                                                 <Loader width={WIDTHS.XS} height={HEIGHTS.XS} color={COLORS.basicBlue} />
                                                 :
-                                                t("common_register")
+                                                t("common.sign_up")
                                         }
                                     </Button>
                                 </>

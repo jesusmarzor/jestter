@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app"
 import { getFirestore, collection, getDocs, addDoc } from 'firebase/firestore/lite';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendPasswordResetEmail, User, updateProfile, sendEmailVerification, deleteUser, GithubAuthProvider, signInWithPopup, onAuthStateChanged } from "firebase/auth"
-import { isEmpty } from "../utils/VALIDATIONS";
+import { isEmpty, isVerifiedEmail } from "../utils/VALIDATIONS";
 import { LOGIN_ERRORS_TYPE, REGISTER_ERRORS_TYPE } from "../utils/ERRORS_TYPE";
 import userToUserJestter from "../utils/userToUserJestter";
 
@@ -107,7 +107,7 @@ export const loginWithGithub = async () => {
 
 export const onAuthUser = (loginAuth: any, goToView: any, setIsLoading: any) => {
   onAuthStateChanged(auth, firebaseUser => {
-    if (firebaseUser != null) {
+    if (firebaseUser != null && isVerifiedEmail(firebaseUser)) {
       const user = userToUserJestter(firebaseUser)
       loginAuth(user, goToView)
       setIsLoading(false)
