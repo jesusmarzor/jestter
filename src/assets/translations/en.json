@@ -1,52 +1,72 @@
 {
-    "onboarding_title": "Happening now",
-    "register_section_title": "Join Jestter today.",
-    "register_section_button_github_label": "Sign up with Github",
-    "register_section_button_email_label": "Sign up with email",
-    "register_section_footer": "By signing up, you agree to the <0>Terms of Service</0> and <1>Privacy Policy</1>, including <2>Cookie Use</2>.",
-    "login_section_title": "Already have an account?",
-    "login_section_button_label": "Sign in",
-    "common_or": "or",
-    "common_about": "About",
-    "help_center": "Help Center",
-    "terms_of_service": "Terms of Service",
-    "privacy_policy": "Privacy Policy",
-    "cookie_policy": "Cookie Policy",
-    "accessibility": "Accessibility",
-    "ads_info": "Ads info",
-    "blog": "Blog",
-    "status": "Status",
-    "careers": "Careers",
-    "brand_resources": "Brand Resources",
-    "advertising": "Advertising",
-    "marketing": "Marketing",
-    "jestter_for_business": "Jestter for Business",
-    "developers": "Developers",
-    "directory": "Directory",
-    "settings": "Settings",
-    "twitter_copy_by": "Twitter copy by",
-    "login_modal_title": "Sign in to Jestter",
-    "login_modal_button_github": "Sign in with Github",
-    "login_modal_phone_email_or_username_placeholder": "Phone, email or username",
-    "common_next": "Next",
-    "common_forgot_password": "Forgot password?",
-    "login_modal_footer": "Don't have an account? <0>Sign up</0>",
-    "error_login_user": "Sorry, we could not find your account.",
-    "error_login_many_request": "Sorry, there have been too many requests.",
-    "error_login_user_not_found": "Sorry, this user is not register.",
-    "error_login_email_invalid": "Sorry, the email is not valid",
-    "error_login_password": "Sorry, wrong password",
-    "forgot_password_find_your_account": "Find your Jestter account",
-    "common_search": "Search",
-    "common_password": "Password",
-    "notification_reset_password": "Email sent",
-    "common_name": "Name",
-    "common_email": "Email",
-    "error_register_user": "Sorry, the email already in use",
-    "error_register_password": "Sorry, the password is not valid",
-    "register_modal_title": "Create your account",
-    "common_register": "Sign in",
-    "register_email_sent": "Registration email sent",
-    "error_register_name": "Sorry, the name is not valid",
-    "error_login_not_verified": "Sorry, the email is not verified"
+    "onboarding": {
+        "title": "Happening now",
+        "login": {
+            "title": "Already have an account?"
+        },
+        "register": {
+            "title": "Join {{appName}} today.",
+            "button": "Sign up with {{technology}}",
+            "footer": "By signing up, you agree to the <0>Terms of Service</0> and <1>Privacy Policy</1>, including <2>Cookie Use</2>."
+        }
+    },
+    "common": {
+        "or": "or",
+        "about_us": "About us",
+        "next": "Next",
+        "forgot_password": "Forgot password?",
+        "search": "Search",
+        "password": "Password",
+        "repeat_password": "Repeat password",
+        "name": "Name",
+        "email": "Email",
+        "sign_up": "Sign up",
+        "sign_in": "Sign in",
+        "send": "Send",
+        "help_center": "Help Center",
+        "terms_of_service": "Terms of Service",
+        "privacy_policy": "Privacy Policy",
+        "cookie_policy": "Cookie Policy",
+        "accessibility": "Accessibility",
+        "ads_info": "Ads info",
+        "blog": "Blog",
+        "status": "Status",
+        "careers": "Careers",
+        "brand_resources": "Brand Resources",
+        "advertising": "Advertising",
+        "marketing": "Marketing",
+        "app_for_business": "{{appName}} for Business",
+        "developers": "Developers",
+        "directory": "Directory",
+        "settings": "Settings",
+        "twitter_copy_by": "Twitter copy by <0>{{name}}</0>"
+    },
+    "modal": {
+        "login": {
+            "title": "Sign in to {{appName}}",
+            "button": "Sign in with {{technology}}",
+            "footer": "Don't have an account? <0>Sign up</0>"
+        },
+        "reset_password": {
+            "title": "Send mail to your {{appName}} account"
+        },
+        "register": {
+            "title": "Create your account"
+        }
+    },
+    "alert": {
+        "error": {
+            "user_not_found": "Sorry, this user is not register.",
+            "many_request": "Sorry, there have been too many requests.",
+            "email_invalid":  "Sorry, the email is not valid",
+            "password": "Sorry, wrong password",
+            "email_not_verified": "Sorry, the email is not verified",
+            "email_in_used": "Sorry, the email already in use",
+            "password_invalid": "Sorry, the password is not valid",
+            "name_not_valid": "Sorry, the name is not valid"
+        },
+        "success": {
+            "email_sent": "Email sent"
+        }
+    }
 }

@@ -1,52 +1,72 @@
 {
-    "onboarding_title": "Está sucendiendo",
-    "register_section_title": "Entra en Jestter hoy.",
-    "register_section_button_github_label": "Registrate con Github",
-    "register_section_button_email_label": "Registrate con email",
-    "register_section_footer": "Al registrarte, estas aceptando nuestros <0>términos de servicio</0> y <1>politicas de privacidad</1>. Incluido las <2>cookies en uso</2>.",
-    "login_section_title": "¿Ya tienes cuenta?",
-    "login_section_button_label": "Iniciar sesión",
-    "common_or": "o",
-    "common_about": "Sobre nosotros",
-    "help_center": "Centro de ayuda",
-    "terms_of_service": "Terminos de servicios",
-    "privacy_policy": "Políticas de privacidad",
-    "cookie_policy": "Políticas de cookies",
-    "accessibility": "Accesibilidad",
-    "ads_info": "Información de anuncios",
-    "blog": "Blog",
-    "status": "Estatus",
-    "careers": "Carreras",
-    "brand_resources": "Recursos de marcas",
-    "advertising": "Publicidad",
-    "marketing": "Marketing",
-    "jestter_for_business": "Jestter para empresas",
-    "developers": "Desarrolladores",
-    "directory": "Directorio",
-    "settings": "Ajustes",
-    "twitter_copy_by": "Copia de Jestter por",
-    "login_modal_title": "Iniciar sesión en Jesster",
-    "login_modal_button_github": "Iniciar sesión con Github",
-    "login_modal_phone_email_or_username_placeholder": "Teléfono, email o nombre de usuario",
-    "common_next": "Siguiente",
-    "common_forgot_password": "¿Has olvidado tu contraseña?",
-    "login_modal_footer": "¿No tienes cuenta? <0>Registrarse</0>",
-    "error_login_user": "Lo siento, no encontramos tu cuenta.",
-    "error_login_many_request": "Lo siento, han habido demasiadas solicitudes.",
-    "error_login_user_not_found": "Lo siento, el usuario no está registrado.",
-    "error_login_email_invalid": "Lo siento, el email no es valido",
-    "error_login_password": "Lo siento, la contraseña es incorrecta",
-    "forgot_password_find_your_account": "Buscar tu cuenta de Jestter",
-    "common_search": "Buscar",
-    "common_password": "Contraseña",
-    "notification_reset_password": "Email enviado",
-    "common_name": "Nombre",
-    "common_email": "Email",
-    "error_register_email": "Lo siento, el email ya está en uso",
-    "error_register_password": "Lo siento, la contraseña no es válida",
-    "register_modal_title": "Crea tu cuenta",
-    "common_register": "Registrarse",
-    "register_email_sent": "Email de registro enviado",
-    "error_register_name": "Lo siento, el nombre no es valido",
-    "error_login_not_verified": "Lo siento, el email no está verificado"
+    "onboarding": {
+        "title": "Está sucendiendo",
+        "login": {
+            "title": "¿Ya tienes cuenta?"
+        },
+        "register": {
+            "title": "Entra en {{appName}} hoy.",
+            "button": "Registrate con {{technology}}",
+            "footer": "Al registrarte, estas aceptando nuestros <0>términos de servicio</0> y <1>politicas de privacidad</1>. Incluido las <2>cookies en uso</2>."
+        }
+    },
+    "common": {
+        "or": "o",
+        "about_us": "Sobre nosotros",
+        "next": "Siguiente",
+        "forgot_password": "¿Has olvidado tu contraseña?",
+        "search": "Buscar",
+        "password": "Contraseña",
+        "repeat_password": "Repetir contraseña",
+        "name": "Nombre",
+        "email": "Email",
+        "sign_up": "Registrarse",
+        "sign_in": "Iniciar sesión",
+        "send": "Enviar",
+        "help_center": "Centro de ayuda",
+        "terms_of_service": "Terminos de servicios",
+        "privacy_policy": "Políticas de privacidad",
+        "cookie_policy": "Políticas de cookies",
+        "accessibility": "Accesibilidad",
+        "ads_info": "Información de anuncios",
+        "blog": "Blog",
+        "status": "Estado",
+        "careers": "Carreras",
+        "brand_resources": "Recursos de marcas",
+        "advertising": "Publicidad",
+        "marketing": "Marketing",
+        "app_for_business": "{{appName}} para empresas",
+        "developers": "Desarrolladores",
+        "directory": "Directorio",
+        "settings": "Ajustes",
+        "twitter_copy_by": "Copia de Twitter por <0>{{name}}</0>"
+    },
+    "modal": {
+        "login": {
+            "title": "Iniciar sesión en {{appName}}",
+            "button": "Iniciar sesión con {{technology}}",
+            "footer": "¿No tienes cuenta? <0>Registrarse</0>"
+        },
+        "reset_password": {
+            "title": "Enviar correo a tu cuenta de {{appName}}"
+        },
+        "register": {
+            "title": "Crea tu cuenta"
+        }
+    },
+    "alert": {
+        "error": {
+            "user_not_found": "Lo siento, el usuario no está registrado.",
+            "many_request": "Lo siento, han habido demasiadas solicitudes.",
+            "email_invalid": "Lo siento, el email no es valido",
+            "password": "Lo siento, la contraseña es incorrecta",
+            "email_not_verified": "Lo siento, el email no está verificado",
+            "email_in_used": "Lo siento, el email ya está en uso",
+            "password_invalid": "Lo siento, la contraseña no es válida",
+            "name_not_valid": "Lo siento, el nombre no es valido"
+        },
+        "success": {
+            "email_sent": "Email enviado"
+        }
+    }
 }

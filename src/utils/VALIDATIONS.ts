@@ -1,4 +1,5 @@
-import { MIN_CHARACTERS_PASSWORD } from "./CONSTANTS"
+import { User } from "firebase/auth"
+import { MIN_CHARACTERS_PASSWORD, PROVIDER_ID_PASSWORD } from "./CONSTANTS"
 
 export const isEmpty = (text: string): boolean => {
     return !text
@@ -29,4 +30,8 @@ export const validatePassword = (password: string, confirmPassword: string) : bo
         containLowerCase(password) &&
         containUpperCase(password)
     )
+}
+
+export const isVerifiedEmail = (user: User) => {
+    return user?.emailVerified || user?.providerData[0].providerId !== PROVIDER_ID_PASSWORD
 }

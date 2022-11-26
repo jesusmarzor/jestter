@@ -14,6 +14,7 @@ import { Loader } from "../../ui/Loader"
 import { Message } from "../../ui/Message"
 import { Modal } from "../../ui/Modal"
 import "./styles.css"
+import { APP_NAME } from "../../../utils/CONSTANTS"
 
 const ResetPassword = () => {
     const { text, writing, setWriting, changeText, clickOutInput } = useInput()
@@ -25,16 +26,16 @@ const ResetPassword = () => {
             <Modal backgroundColor={COLORS.empty} close={setIsModal} onclick={clickOutInput}>
                 <Hedgehog width={WIDTHS.MD_EXT} height={HEIGHTS.MD_EXT} fill={COLORS.basicBlue} />
                 <section className="ResetPassword">
-                    <h1 className="ResetPassword-title">{t("forgot_password_find_your_account")}</h1>
+                    <h1 className="ResetPassword-title">{t("modal.reset_password.title", {appName: APP_NAME})}</h1>
                     <form onSubmit={e => validationUser(e, t)}>
-                        <Input type={INPUT_TYPES.TEXT} title={t("common_email")} text={text} changeText={changeText} writing={writing} setWriting={setWriting} />
+                        <Input type={INPUT_TYPES.TEXT} title={t("common.email")} text={text} changeText={changeText} writing={writing} setWriting={setWriting} />
                         <Button type={BUTTONS_TYPES.submit} marginTop={MARGINS.MD} marginBottom={MARGINS.MD} disabled={!isEmpty(notification)} color={COLORS.white} backgroundColor={COLORS.black} borderColor={COLORS.gray}>
                             {
                                 (isLoading)
                                     ?
                                     <Loader width={WIDTHS.XS} height={HEIGHTS.XS} color={COLORS.basicBlue} />
                                     :
-                                    t("common_search")
+                                    t("common.send")
                             }
                         </Button>
                     </form>

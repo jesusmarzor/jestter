@@ -8,7 +8,7 @@ export const Header = () => {
     return(
         <header className="Header">
             <Hedgehog width={WIDTHS.MD_EXT2} height={HEIGHTS.MD_EXT2} fill={COLORS.basicBlue}/>
-            <h1 className="Header-title">{t("onboarding_title")}</h1>
+            <h1 className="Header-title">{t("onboarding.title")}</h1>
         </header>
     )
 }

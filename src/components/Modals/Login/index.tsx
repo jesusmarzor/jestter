@@ -13,7 +13,7 @@ import useInput from "../../../hooks/useInput"
 import { isEmpty } from "../../../utils/VALIDATIONS"
 import { ModalConsumer } from "../../../contexts/ModalContext"
 import useSteps from "../../../hooks/useSteps"
-import { MAX_STEP_LOGIN_MODAL } from "../../../utils/CONSTANTS"
+import { APP_NAME, MAX_STEP_LOGIN_MODAL } from "../../../utils/CONSTANTS"
 import { COLORS, HEIGHTS, MARGINS, WIDTHS } from "../../../utils/THEME"
 import INPUT_TYPES from "../../../utils/INPUT_TYPES"
 import "./styles.css"
@@ -25,6 +25,7 @@ const LinkButton = styled.button`
     background-color: ${COLORS.empty};
     outline: none;
     border: none;
+    cursor: pointer;
 `
 
 interface props {
@@ -45,35 +46,35 @@ export const Login: React.FC<props> = ({ goToView }) => {
             <Modal close={setIsModal} onclick={(step === 0) ? clickOutInputUser : clickOutInputPassword}>
                 <Hedgehog width={WIDTHS.MD_EXT} height={HEIGHTS.MD_EXT} fill={COLORS.basicBlue} />
                 <section className="Login">
-                    <h2 className="Login-title">{t("login_modal_title")}</h2>
-                    <Button onclick={() => loginAuthWithGithub(goToView)} color={COLORS.black} backgroundColor={COLORS.white} borderColor={COLORS.gray}>{t("login_modal_button_github")}</Button>
-                    <Separator>{t("common_or")}</Separator>
+                    <h2 className="Login-title">{t("modal.login.title", {appName: APP_NAME})}</h2>
+                    <Button onclick={() => loginAuthWithGithub(goToView)} color={COLORS.black} backgroundColor={COLORS.white} borderColor={COLORS.gray}>{t("modal.login.button", {technology: "Github"})}</Button>
+                    <Separator>{t("common.or")}</Separator>
                     <form onSubmit={e => (step === 0) ? validationUser(e, t) : validationPassword(e, t)}>
                         {
                             (step === 0)
                                 ?
                                 <>
-                                    <Input type={INPUT_TYPES.TEXT} title={t("common_email")} text={textUser} changeText={changeTextUser} writing={writingUser} setWriting={setWritingUser} />
+                                    <Input type={INPUT_TYPES.TEXT} title={t("common.email")} text={textUser} changeText={changeTextUser} writing={writingUser} setWriting={setWritingUser} />
                                     <Button type={BUTTONS_TYPES.submit} marginTop={MARGINS.MD} marginBottom={MARGINS.MD} disabled={!isEmpty(notification)} color={COLORS.white} backgroundColor={COLORS.black} borderColor={COLORS.gray}>
                                         {
                                             (isLoading)
                                                 ?
                                                 <Loader width={WIDTHS.XS} height={HEIGHTS.XS} color={COLORS.basicBlue} />
                                                 :
-                                                t("common_next")
+                                                t("common.next")
                                         }
                                     </Button>
                                 </>
                                 :
                                 <>
-                                    <Input type={INPUT_TYPES.PASSWORD} title={t('common_password')} text={textPassword} changeText={changeTextPassword} writing={writingPassword} setWriting={setWritingPassword} />
-                                    <Button type={BUTTONS_TYPES.submit} marginTop={MARGINS.MD} marginBottom={MARGINS.MD} disabled={!isEmpty(notification)} color={COLORS.white} backgroundColor={COLORS.black} borderColor={COLORS.gray}>{t("login_section_button_label")}</Button>
+                                    <Input type={INPUT_TYPES.PASSWORD} title={t('common.password')} text={textPassword} changeText={changeTextPassword} writing={writingPassword} setWriting={setWritingPassword} />
+                                    <Button type={BUTTONS_TYPES.submit} marginTop={MARGINS.MD} marginBottom={MARGINS.MD} disabled={!isEmpty(notification)} color={COLORS.white} backgroundColor={COLORS.black} borderColor={COLORS.gray}>{t("common.sign_in")}</Button>
                                 </>
                         }
                     </form>
-                    <Button onclick={() => setIsModalResetPassword(true)} color={COLORS.black} backgroundColor={COLORS.white} borderColor={COLORS.gray}>{t("common_forgot_password")}</Button>
+                    <Button onclick={() => setIsModalResetPassword(true)} color={COLORS.black} backgroundColor={COLORS.white} borderColor={COLORS.gray}>{t("common.forgot_password")}</Button>
                     <footer className="Login-footer">
-                        <Trans i18nKey={"login_modal_footer"}>
+                        <Trans i18nKey={"modal.login.footer"}>
                             <LinkButton onClick={() => goToRegisterModal()}></LinkButton >
                         </Trans>
                     </footer>

@@ -24,9 +24,9 @@ const useResetPassword = ({text}: props): UseLogin => {
         resetPassword(text)
         .then( (data: boolean) => {
             if (data) {
-                setNotification(t("notification_reset_password"))
+                setNotification(t("alert.success.email_sent"))
             } else {
-                setNotification(t("error_login_user_not_found"))
+                setNotification(t("alert.error.user_not_found"))
             }
             setIsLoading(false)
         })
